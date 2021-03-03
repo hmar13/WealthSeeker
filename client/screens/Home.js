@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Input, Button } from 'react-native-elements';
+import HeaderComponent from '../components/HeaderComponent';
 
 
 const Home = () => {
@@ -8,8 +9,7 @@ const Home = () => {
     <View style={styles.container}>
 
       <View style={styles.header}>
-        <View style={styles.header__icon}></View>
-        <Text style={styles.header__title1}>Wealth<Text style={styles.header__title2}>Seeker</Text></Text>
+        <HeaderComponent />
       </View>
 
       <View style={styles.searchbar}>
@@ -26,6 +26,11 @@ const Home = () => {
   )
 }
 
+// {/* <DiscoverComponent
+// movies={movies}
+// onDoAction={addOrRemove}
+// /> */}
+
 export default Home;
 
 const styles = StyleSheet.create({
@@ -34,5 +39,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     backgroundColor: '#ffffff',
-  }
+  },
+  header: {
+    alignItems: 'center',
+  },
 })

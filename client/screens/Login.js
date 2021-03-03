@@ -1,14 +1,14 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { Input, Button } from 'react-native-elements';
+import HeaderComponent from '../components/HeaderComponent';
 
 const Login = ({ navigation }) => {
   return (
     <View style={styles.container}>
 
       <View style={styles.header}>
-        <View style={styles.header__icon}></View>
-        <Text style={styles.header__title1}>Wealth<Text style={styles.header__title2}>Seeker</Text></Text>
+        <HeaderComponent />
       </View>
 
       <Input placeholder="Username/Email"/>
@@ -34,18 +34,6 @@ const styles = StyleSheet.create({
   header: {
     alignItems: 'center',
   },
-  header__icon: {
-
-  },
-  header__title1: {
-    fontWeight: 'bold',
-    paddingVertical: 0,
-    fontSize: 20,
-  },
-  header__title2: {
-    paddingVertical: 50,
-    fontWeight: 'normal',
-  }
 });
 
 
