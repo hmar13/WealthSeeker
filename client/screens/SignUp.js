@@ -6,16 +6,14 @@ import ApiService from '../ApiService';
 
 const SignUp = ({ navigation }) => {
   //User Information State
-  const [userInformation, setUserInformation] = useState([]);
   const [username, setUsername] = useState();
   const [userpassword, setUserPassword] = useState();
   const [useremail, setUserEmail] = useState();
 
 
   //Handler to Post New User Information
-  const handleCreateUser = useCallback(async (data) => {
-    const result = await ApiService.createUser(data);
-    setUserInformation(result)
+  const handleCreateUser = useCallback((data) => {
+    return ApiService.createUser(data);
   }, [])
 
   return (
@@ -43,9 +41,9 @@ const SignUp = ({ navigation }) => {
         type="solid"
         onPress={() =>
           {
-            if(username.length > 5 && userpasword.length > 5 && useremail.length > 6) {
+            if(username.length > 5 && userpassword.length > 5 && useremail.length > 6) {
               handleCreateUser({username, userpassword, useremail})
-              navigation.push('Home')
+              navigation.push('Login')
             }
           }}
         />
