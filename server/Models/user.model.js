@@ -1,17 +1,28 @@
 const db = require('./index');
 
-// Get User Information
-exports.getAll = async () => {
-  const res = await db.query('SELECT * FROM users');
-  return res.rows;
+// Check User Information
+exports.checkUser = async (data) => {
+  try {
+    // console.log(data.username, data.userpassword)
+    const result = await db.query(
+      `SELECT userid, username, userwatchlist
+      FROM users
+      WHERE (username = '${data.username}') AND (userpassword = '${data.userpassword}')`
+    );
+    console.log(result.rows);
+    return result.rows;
+  } catch (error) {
+    console.error('Error getting username/password', error);
+    return error;
+  }
 };
 
 // Create a new User
 exports.postNewUser = (data) => {
-  return db.query(
+  db.query(
     `INSERT INTO users (userid, username, userpassword, useremail, userwatchlist)
     VALUES ($1, $2, $3, $4, $5)`,
-    [data.userId, data.userName, data.userPassword, data.userEmail, data.userWatchList]
+    [data.userid, data.username, data.userpassword, data.useremail, data.userwatchList]
   );
 };
 
