@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Input } from 'react-native-elements';
 
 const SearchBarComponent = () => {
   return (
     <View>
-      <Text></Text>
+      <Input placeholder="Search Investments"/>
     </View>
   )
 }

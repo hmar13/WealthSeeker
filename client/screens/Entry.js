@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
+import SvgBigLogoComponent from '../components/SvgBigLogoComponent';
+
 
 const Entry = ({ navigation }) => {
   return (
@@ -8,6 +10,12 @@ const Entry = ({ navigation }) => {
       <View style={styles.title}>
         <Text style={styles.title1}>Wealth<Text style={styles.title2}>Seeker</Text></Text>
       </View>
+
+      <View style={styles.logo}>
+        <SvgBigLogoComponent />
+      </View>
+
+      <Text>Live Wealthy</Text>
 
       <View style={styles.buttons}>
         <Button

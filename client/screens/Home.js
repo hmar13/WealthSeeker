@@ -1,25 +1,25 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { Input, Button } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import HeaderComponent from '../components/HeaderComponent';
+import SearchBarComponent from '../components/SearchBarComponent';
+import WatchListComponent from '../components/WatchListComponent';
 
 
 const Home = () => {
   return (
     <View style={styles.container}>
 
-      <View style={styles.header}>
+      <View>
         <HeaderComponent />
       </View>
 
-      <View style={styles.searchbar}>
-        <Input placeholder="Search Investments"/>
+      <View>
+        <SearchBarComponent />
       </View>
 
-      <View style={styles.watchlist}>
-        <Button title="Add Symbol"/>
-        <Text>Watchlist</Text>
-        <Button title="Edit List"/>
+      <View>
+        <WatchListComponent />
       </View>
     </View>
 
@@ -34,13 +34,5 @@ const Home = () => {
 export default Home;
 
 const styles = StyleSheet.create({
-  watchlist: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    backgroundColor: '#ffffff',
-  },
-  header: {
-    alignItems: 'center',
-  },
+
 })

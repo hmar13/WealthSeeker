@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import HeaderComponent from '../components/HeaderComponent';
 
 const Login = ({ navigation }) => {
+
   return (
     <View style={styles.container}>
 
