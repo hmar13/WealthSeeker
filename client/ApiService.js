@@ -1,5 +1,6 @@
 //Instead of localhost, put your IP address:
 const BASE_URL = 'http://192.168.0.80:3001/'
+const IEX_URL = 'https://sandbox.iexapis.com/stable/stock/';
 
 
 //Confirm if a user is in the DB to login:
@@ -34,13 +35,34 @@ function createUser (body) {
   }
 }
 
+// Get WatchList Ticker Information
+// function getTicker (ticker) {
+//   try {
+//     return fetchRequestIEX(`${ticker}/quote?token=Tpk_3fe75aad367342a89be38099c730b1a3`, {
+
+//     })
+//   } catch (error) {
+//     console.error('Get Ticker Error: ', error)
+//   }
+// }
+
+
 function fetchRequest (url, options) {
   return fetch(BASE_URL + url, options)
   .then(response => response.json())
   .then(responseJson => {return responseJson})
   .catch(error => {
-    console.error(`Error fetching ${url}:`, error);
+    console.error(`Error fetching ${url}: `, error);
   })
 }
+
+// function fetchRequestIEX (url, options) {
+//   return fetch(IEX_URL + url, options)
+//   .then(response => response.json())
+//   .then(responseJson => {return responseJson})
+//   .catch(error => {
+//     console.error(`Error fetch ${url}: `, error)
+//   })
+// }
 
 export default { loginInformation, createUser };

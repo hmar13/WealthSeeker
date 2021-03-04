@@ -1,11 +1,22 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { Button } from 'react-native-elements';
 import WatchListItemsComponent from './WatchListItemsComponent';
 
-const WatchListComponent = () => {
+const WatchListComponent = ({ watchlistItems, navigation }) => {
+  const [userWatchlist, setUserWatchlist] = useState(['empty']);
+
+  useEffect(() => {
+    if (watchlistItems) {
+      setUserWatchlist(watchlistItems);
+    }
+  }, [])
+
+  // console.log('WatchListComponent', userWatchlist);
+
   return (
     <View style={styles.watchlist}>
+
       <View style={styles.watchlist__header}>
         <Button title="Add Symbol"/>
         <Text>Watchlist</Text>
@@ -13,7 +24,12 @@ const WatchListComponent = () => {
       </View>
 
       <View style={styles.watchlist__items}>
-        <WatchListItemsComponent />
+      <FlatList
+      data={userWatchlist}
+      keyExtractor={item => item}
+      renderItem={({ item }) => <WatchListItemsComponent name={item} />}
+      />
+
       </View>
     </View>
   )

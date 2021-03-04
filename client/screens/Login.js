@@ -6,7 +6,6 @@ import ApiService from '../ApiService';
 
 const Login = ({ navigation }) => {
   //User Information State
-  const [userInformation, setUserInformation] = useState([]);
   const [username, setUsername] = useState();
   const [userpassword, setUserPassword] = useState();
 
@@ -14,9 +13,9 @@ const Login = ({ navigation }) => {
   const handleUserInformation = useCallback(async (data) => {
     const result = await ApiService.loginInformation(data);
     if (result) {
-      setUserInformation(result);
+      navigation.push('Home', {userInformation: result})
     } else {
-      setUserInformation([])
+      //TO DO: show error, shake;
     }
   }, []);
 
@@ -41,9 +40,6 @@ const Login = ({ navigation }) => {
         type="solid"
         onPress={() => {
           handleUserInformation({username, userpassword})
-          if (userInformation.length > 0) {
-            navigation.push('Home')
-          }
         }}
       />
 
