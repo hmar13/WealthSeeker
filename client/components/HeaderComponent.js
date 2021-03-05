@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import SvgLogoComponent from './SvgLogoComponent';
+import SvgLogoComponent from './svg-components/SvgLogoComponent';
 
 const HeaderComponent = () => {
   return (

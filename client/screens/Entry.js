@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
-import SvgBigLogoComponent from '../components/SvgBigLogoComponent';
+import SvgBigLogoComponent from '../components/svg-components/SvgBigLogoComponent';
 
 
 const Entry = ({ navigation }) => {

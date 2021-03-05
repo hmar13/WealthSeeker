@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import HeaderComponent from '../components/HeaderComponent';
-import SearchBarComponent from '../components/SearchBarComponent';
-import WatchListComponent from '../components/WatchListComponent';
+import SearchBarComponent from '../components/searchbar-components/SearchBarComponent';
+import WatchListComponent from '../components/watchlist-components/WatchListComponent';
 
-const Home = ({ route, navigation}) => {
-  const [userInformation, setUserInformation] = useState(['empty']);
+const Home = ({ route, navigation }) => {
+  const [userInformation, setUserInformation] = useState(null);
 
   useEffect(() => {
-    setUserInformation(route.params.userInformation[0]);
+    if (route.params.userInformation) {
+      setUserInformation(route.params.userInformation[0]);
+    } else {
+      console.log('No Watchlist');
+    }
   }, [])
 
   // console.log('Home', userInformation);
@@ -25,7 +29,7 @@ const Home = ({ route, navigation}) => {
       </View>
 
       <View>
-        <WatchListComponent watchlistItems={userInformation.userwatchlist}/>
+        {userInformation ? <WatchListComponent watchlist={userInformation.userwatchlist}/> : null}
       </View>
     </View>
 

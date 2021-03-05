@@ -3,16 +3,17 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { Button } from 'react-native-elements';
 import WatchListItemsComponent from './WatchListItemsComponent';
 
-const WatchListComponent = ({ watchlistItems, navigation }) => {
+const WatchListComponent = ({ watchlist, navigation }) => {
   const [userWatchlist, setUserWatchlist] = useState(['empty']);
 
   useEffect(() => {
-    if (watchlistItems) {
-      setUserWatchlist(watchlistItems);
+    if (watchlist) {
+      console.log('watchlist', watchlist)
+      setUserWatchlist(watchlist);
+    } else {
+      console.log('component no watchlist'); //Change to render empty watchlist
     }
   }, [])
-
-  // console.log('WatchListComponent', userWatchlist);
 
   return (
     <View style={styles.watchlist}>

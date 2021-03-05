@@ -12,10 +12,10 @@ const Login = ({ navigation }) => {
   //Handler to check Login Info
   const handleUserInformation = useCallback(async (data) => {
     const result = await ApiService.loginInformation(data);
-    if (result) {
-      navigation.push('Home', {userInformation: result})
+    if (result.length === 0) {
+      console.log('Wrong username/password');
     } else {
-      //TO DO: show error, shake;
+      navigation.push('Home', {userInformation: result});
     }
   }, []);
 
