@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import ApiService from '../../ApiService';
 
-const WatchListAddSymbolComponent = ({ setUserWatchlist, userId }) => {
+const WatchListAddSymbolComponent = ({ setUserWatchlist, userId, watchlist }) => {
   const [symbol, setSymbol] = useState();
 
   //Get the ticker information {} on click
@@ -17,10 +17,8 @@ const WatchListAddSymbolComponent = ({ setUserWatchlist, userId }) => {
         ticker: result.symbol,
         userId: userId
       })
-      //Render to Watchlist Component
-      setUserWatchlist((watchlist) => (
-        [...watchlist, result.symbol]
-      ))
+      //FIX: Stop from adding Duplicate Symbols && Control When Ticker is not real
+      setUserWatchlist((watchlist) => ([...watchlist, result.symbol]))
     }
   }, []);
 
@@ -32,6 +30,7 @@ const WatchListAddSymbolComponent = ({ setUserWatchlist, userId }) => {
           handleApiCall({symbol})
         }}
       />
+
       <Input
       placeholder="Ticker"
       onChangeText={value => setSymbol(value)}

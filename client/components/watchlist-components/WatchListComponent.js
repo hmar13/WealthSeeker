@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
-import { Button } from 'react-native-elements';
 import WatchListItemsComponent from './WatchListItemsComponent';
 import WatchListAddSymbolComponent from './WatchListAddSymbolComponent';
+import WatchListEditListComponent from './WatchListEditListComponent';
 
 const WatchListComponent = ({ watchlist, userId }) => {
-  const [userWatchlist, setUserWatchlist] = useState(['Nothing here..']);
+  const [userWatchlist, setUserWatchlist] = useState();
 
   //Save watchlist in state userWatchlist
   useEffect(() => {
@@ -23,9 +23,16 @@ const WatchListComponent = ({ watchlist, userId }) => {
         <WatchListAddSymbolComponent
         setUserWatchlist={setUserWatchlist}
         userId={userId}
+        watchlist={watchlist}
         />
+
         <Text>Watchlist</Text>
-        <Button title="Edit List"/>
+
+        <WatchListEditListComponent
+          setUserWatchlist={setUserWatchlist}
+          userId={userId}
+          watchlist={watchlist}
+        />
       </View>
 
       <View style={styles.watchlist__items}>

@@ -51,6 +51,22 @@ function addToWatchlistDB (data) {
   }
 }
 
+// Delete Ticker in Watchlist DB
+function deleteTickerWatchlist (data) {
+  try {
+    return fetchRequest('deleteticker', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    })
+  } catch (error) {
+    console.error('Delete Ticker in Watchlist Error: ', error);
+  }
+}
+
 // Get WatchList Ticker Information
 function getTicker (ticker) {
   try {
@@ -80,4 +96,10 @@ function fetchRequestIEX (url) {
   })
 }
 
-export default { loginInformation, createUser, getTicker, addToWatchlistDB };
+export default {
+  loginInformation,
+  createUser,
+  getTicker,
+  addToWatchlistDB,
+  deleteTickerWatchlist
+};
