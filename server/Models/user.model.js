@@ -5,9 +5,11 @@ exports.checkUser = async (data) => {
   try {
     // console.log(data.username, data.userpassword)
     const result = await db.query(
-      `SELECT id, username, userwatchlist
+      `
+      SELECT id, username, userwatchlist
       FROM users
-      WHERE (username = '${data.username}') AND (userpassword = '${data.userpassword}')`
+      WHERE (username = '${data.username}') AND (userpassword = '${data.userpassword}')
+      `
     );
     // console.log(result.rows);
     return result.rows;
@@ -20,8 +22,10 @@ exports.checkUser = async (data) => {
 // Create a new User
 exports.postNewUser = (data) => {
   db.query(
-    `INSERT INTO users (username, userpassword, useremail, userwatchlist)
-    VALUES ($1, $2, $3, $4)`,
+    `
+    INSERT INTO users (username, userpassword, useremail, userwatchlist)
+    VALUES ($1, $2, $3, $4)
+    `,
     [data.username, data.userpassword, data.useremail, data.userwatchList]
   );
 };

@@ -20,7 +20,7 @@ function loginInformation (body) {
 }
 
 // Create a user in the DB:
-function createUser (body) {
+function createUser (data) {
   try {
     return fetchRequest('signup', {
       method: 'POST',
@@ -28,25 +28,39 @@ function createUser (body) {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(data)
     })
   } catch (error) {
     console.error('Create User Error: ', error)
   }
 }
 
+// Add to Watchlist in DB
+function addToWatchlistDB (data) {
+  try {
+    return fetchRequest('addtowatchlist', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    })
+  } catch (error) {
+    console.error('Add To Watch List DB Error: ', error);
+  }
+}
+
 // Get WatchList Ticker Information
-// function getTicker (ticker) {
-//   try {
-//     return fetchRequestIEX(`${ticker}/quote?token=Tpk_3fe75aad367342a89be38099c730b1a3`, {
+function getTicker (ticker) {
+  try {
+    return fetchRequestIEX(`${ticker}/quote?token=Tpk_3fe75aad367342a89be38099c730b1a3`)
+  } catch (error) {
+    console.error('Get Ticker Error: ', error)
+  }
+}
 
-//     })
-//   } catch (error) {
-//     console.error('Get Ticker Error: ', error)
-//   }
-// }
-
-
+//DB Fetch Request
 function fetchRequest (url, options) {
   return fetch(BASE_URL + url, options)
   .then(response => response.json())
@@ -56,13 +70,14 @@ function fetchRequest (url, options) {
   })
 }
 
-// function fetchRequestIEX (url, options) {
-//   return fetch(IEX_URL + url, options)
-//   .then(response => response.json())
-//   .then(responseJson => {return responseJson})
-//   .catch(error => {
-//     console.error(`Error fetch ${url}: `, error)
-//   })
-// }
+//API Fetch Request
+function fetchRequestIEX (url) {
+  return fetch(IEX_URL + url)
+  .then(response => response.json())
+  .then(responseJson => {return responseJson})
+  .catch(error => {
+    console.error(`Error fetch ${url}: `, error)
+  })
+}
 
-export default { loginInformation, createUser };
+export default { loginInformation, createUser, getTicker, addToWatchlistDB };

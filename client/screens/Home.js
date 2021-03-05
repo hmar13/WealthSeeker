@@ -4,7 +4,7 @@ import HeaderComponent from '../components/HeaderComponent';
 import SearchBarComponent from '../components/searchbar-components/SearchBarComponent';
 import WatchListComponent from '../components/watchlist-components/WatchListComponent';
 
-const Home = ({ route, navigation }) => {
+const Home = ({ route }) => {
   const [userInformation, setUserInformation] = useState(null);
 
   useEffect(() => {
@@ -14,8 +14,6 @@ const Home = ({ route, navigation }) => {
       console.log('No Watchlist');
     }
   }, [])
-
-  // console.log('Home', userInformation);
 
   return (
     <View style={styles.container}>
@@ -29,7 +27,11 @@ const Home = ({ route, navigation }) => {
       </View>
 
       <View>
-        {userInformation ? <WatchListComponent watchlist={userInformation.userwatchlist}/> : null}
+        {userInformation ? <WatchListComponent
+          watchlist={userInformation.userwatchlist}
+          userId={userInformation.id}
+          />
+          : null}
       </View>
     </View>
 
