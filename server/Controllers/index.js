@@ -7,7 +7,7 @@ exports.checkUserInformation = async (req, res) => {
     res.status(201);
     res.send(userInfo);
   } catch (err) {
-    console.log("error:", err);
+    console.error("error:", err);
     res.sendStatus(500);
   }
 }
@@ -17,19 +17,29 @@ exports.postNewUser = (req, res) => {
     res.status(201);
     res.send(['Created User']);
   } catch (err) {
-    console.log("error:", err);
+    console.error("error:", err);
     res.sendStatus(500);
   }
 };
 
 exports.postToWatchlist = (req, res) => {
   try {
-    console.log('req', req.body)
     watchlistModels.postToWatchlist(req.body);
     res.status(201);
     res.send(['Added to Watchlist']);
   } catch (err) {
-    console.log("error:", err)
+    console.error("error:", err)
+    res.sendStatus(500);
+  }
+}
+
+exports.deleteTicker = (req, res) => {
+  try {
+    watchlistModels.deleteTicker(req.body);
+    res.status(201);
+    res.send(['Deleted from Watchlist'])
+  } catch (err) {
+    console.error("err", err);
     res.sendStatus(500);
   }
 }

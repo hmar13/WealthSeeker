@@ -9,3 +9,13 @@ exports.postToWatchlist = (data) => {
     `
   );
 };
+
+exports.deleteTicker = (data) => {
+  db.query(
+    `
+    UPDATE users
+    SET userwatchlist = array_remove(userwatchlist, '${data.ticker}')
+    WHERE id = ${data.userId};
+    `
+  );
+}
