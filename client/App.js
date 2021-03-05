@@ -8,6 +8,7 @@ import Entry from './screens/Entry';
 import Login from './screens/Login';
 import SignUp from './screens/SignUp';
 import Home from './screens/Home';
+import Information from './screens/Information';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ const App = () => {
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="SignUp" component={SignUp} />
           <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Information" component={Information} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView >

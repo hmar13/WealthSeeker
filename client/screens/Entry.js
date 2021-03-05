@@ -5,6 +5,7 @@ import SvgBigLogoComponent from '../components/svg-components/SvgBigLogoComponen
 
 
 const Entry = ({ navigation }) => {
+
   return (
     <View style={styles.container}>
       <View style={styles.title}>

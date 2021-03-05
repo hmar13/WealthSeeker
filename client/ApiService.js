@@ -2,7 +2,6 @@
 const BASE_URL = 'http://192.168.0.80:3001/'
 const IEX_URL = 'https://sandbox.iexapis.com/stable/stock/';
 
-
 //Confirm if a user is in the DB to login:
 function loginInformation (body) {
     try {
@@ -70,9 +69,18 @@ function deleteTickerWatchlist (data) {
 // Get WatchList Ticker Information
 function getTicker (ticker) {
   try {
-    return fetchRequestIEX(`${ticker}/quote?token=Tpk_3fe75aad367342a89be38099c730b1a3`)
+    return fetchRequestIEX(`${ticker}/quote?token=Tpk_3fe75aad367342a89be38099c730b1a3`);
   } catch (error) {
-    console.error('Get Ticker Error: ', error)
+    console.error('Get Ticker Error: ', error);
+  }
+}
+
+// Get News Ticker Information
+function getNews (ticker) {
+  try {
+    return fetchRequestIEX(`${ticker}/news/last/1?token=Tpk_3fe75aad367342a89be38099c730b1a3`);
+  } catch (error) {
+    console.error('Get News Ticker Error: ', error);
   }
 }
 

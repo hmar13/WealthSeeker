@@ -4,7 +4,7 @@ import WatchListItemsComponent from './WatchListItemsComponent';
 import WatchListAddSymbolComponent from './WatchListAddSymbolComponent';
 import WatchListEditListComponent from './WatchListEditListComponent';
 
-const WatchListComponent = ({ watchlist, userId }) => {
+const WatchListComponent = ({ watchlist, userId, navigation }) => {
   const [userWatchlist, setUserWatchlist] = useState();
 
   //Save watchlist in state userWatchlist
@@ -39,7 +39,11 @@ const WatchListComponent = ({ watchlist, userId }) => {
         <FlatList
         data={userWatchlist}
         keyExtractor={item => item}
-        renderItem={({ item }) => <WatchListItemsComponent name={item} />}
+        renderItem={({ item }) =>
+        <WatchListItemsComponent
+        name={item}
+        navigation={navigation}/>
+      }
         />
       </View>
 

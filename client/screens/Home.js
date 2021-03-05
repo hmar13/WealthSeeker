@@ -4,7 +4,7 @@ import HeaderComponent from '../components/HeaderComponent';
 import SearchBarComponent from '../components/searchbar-components/SearchBarComponent';
 import WatchListComponent from '../components/watchlist-components/WatchListComponent';
 
-const Home = ({ route }) => {
+const Home = ({ route, navigation }) => {
   const [userInformation, setUserInformation] = useState(null);
 
   useEffect(() => {
@@ -30,6 +30,7 @@ const Home = ({ route }) => {
         {userInformation ? <WatchListComponent
           watchlist={userInformation.userwatchlist}
           userId={userInformation.id}
+          navigation={navigation}
           />
           : null}
       </View>
@@ -37,11 +38,6 @@ const Home = ({ route }) => {
 
   )
 }
-
-// {/* <DiscoverComponent
-// movies={movies}
-// onDoAction={addOrRemove}
-// /> */}
 
 export default Home;
 

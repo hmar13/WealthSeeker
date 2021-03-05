@@ -1,14 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 
-const WatchListItemsComponent = (props) => {
+const WatchListItemsComponent = ({ name, navigation }) => {
+
   return (
-    <View>
-      <Text>{props.name}</Text>
-    </View>
+    <TouchableHighlight onPress={() => navigation.push('Information', {
+      ticker: name
+    })}>
+      <View style={styles.container}>
+        <Text>{name}</Text>
+      </View>
+    </TouchableHighlight>
   )
 }
 
 export default WatchListItemsComponent;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 5,
+    backgroundColor: '#ADE8FF',
+    width: '100%',
+  },
+})
