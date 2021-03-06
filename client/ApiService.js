@@ -3,7 +3,7 @@ const BASE_URL = 'http://192.168.0.80:3001/'
 const IEX_URL = 'https://sandbox.iexapis.com/stable/stock/';
 
 //Confirm if a user is in the DB to login:
-function loginInformation (body) {
+function loginInformation (data) {
     try {
       return fetchRequest('login', {
         method: 'POST',
@@ -11,7 +11,7 @@ function loginInformation (body) {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(body)
+        body: JSON.stringify(data)
       })
     } catch (error) {
       console.error('Login Error: ', error)
@@ -84,6 +84,26 @@ function getNews (ticker) {
   }
 }
 
+// Get Stats Ticker Information
+function getStats (ticker) {
+  try {
+    return fetchRequestIEX(`${ticker}/stats?token=Tpk_3fe75aad367342a89be38099c730b1a3`)
+  } catch (error) {
+    console.error('Get News Ticker Error: ', error)
+  }
+}
+
+// Get Historical Prices for Chart
+function getChart (ticker) {
+  try {
+    return fetchRequestIEX(`${ticker}/chart?token=Tpk_3fe75aad367342a89be38099c730b1a3`)
+  } catch (error) {
+    console.error('Get Chart Ticker Error: ', error)
+  }
+}
+
+/////////////////Fetch Requests////////////////////
+
 //DB Fetch Request
 function fetchRequest (url, options) {
   return fetch(BASE_URL + url, options)
@@ -109,5 +129,8 @@ export default {
   createUser,
   getTicker,
   addToWatchlistDB,
-  deleteTickerWatchlist
+  deleteTickerWatchlist,
+  getNews,
+  getStats,
+  getChart
 };

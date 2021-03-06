@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import ApiService from '../ApiService';
+import { StyleSheet, View } from 'react-native';
 import HeaderComponent from '../components/HeaderComponent';
 import NewsComponent from '../components/information-components/NewsComponent';
-import TickerInformation from '../components/information-components/TickerInformation';
+import InvestmentDetailsComponent from '../components/information-components/InvestmentDetailsComponent';
 
 const Information = ({ route }) => {
-  console.log(route.params.ticker) //TSLA
+  // console.log(route.params.ticker) //TSLA
 
   //Fetch News for API
   // const handleNewsFetch = useEffect(async (ticker) => {
@@ -17,9 +16,9 @@ const Information = ({ route }) => {
     <View>
       <HeaderComponent />
 
-      <NewsComponent />
+      <NewsComponent ticker={route.params.ticker ? route.params.ticker : null} />
 
-      <TickerInformation />
+      <InvestmentDetailsComponent ticker={route.params.ticker ? route.params.ticker : null}/>
     </View>
   )
 }
