@@ -4,6 +4,7 @@ import ApiService from '../../ApiService';
 import InvestmentDetailsChartComponent from './InvestmentDetailsChartComponent';
 
 const InvestmentDetailsComponent = ({ticker}) => {
+
   const [investmentStats, setInvestmentStats] = useState([]);
   const [historicalPrices, setHistoricalPrices] = useState([]);
 
@@ -17,11 +18,6 @@ const InvestmentDetailsComponent = ({ticker}) => {
     }
   }, [])
 
-  //Fetch Historical Prices when rendered
-  useEffect(() => {
-    handleHisoricalPricesRequest(ticker)
-  }, [])
-
   //Fetch Investment Stats
   const handleInvestmentStatsRequest = useCallback(async (ticker) => {
     const result = await ApiService.getStats(ticker);
@@ -32,9 +28,10 @@ const InvestmentDetailsComponent = ({ticker}) => {
     }
   }, [])
 
-  //Fetch Investment Stats when rendered
+  //Fetch Investment Stats and Historical Prices
   useEffect(() => {
     handleInvestmentStatsRequest(ticker);
+    handleHisoricalPricesRequest(ticker)
   }, [])
 
   return (
@@ -42,7 +39,7 @@ const InvestmentDetailsComponent = ({ticker}) => {
 
       <View>
         <InvestmentDetailsChartComponent
-        historicalPrices={historicalPrices ? historicalPrices : null}
+        historicalPrices={historicalPrices.length > 0 ? historicalPrices : null}
         />
       </View>
 

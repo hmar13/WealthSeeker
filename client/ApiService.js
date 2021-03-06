@@ -34,7 +34,7 @@ function createUser (data) {
   }
 }
 
-// Add to Watchlist in DB
+// Add to Watchlist in DB:
 function addToWatchlistDB (data) {
   try {
     return fetchRequest('addtowatchlist', {
@@ -50,7 +50,7 @@ function addToWatchlistDB (data) {
   }
 }
 
-// Delete Ticker in Watchlist DB
+// Delete Ticker in Watchlist DB:
 function deleteTickerWatchlist (data) {
   try {
     return fetchRequest('deleteticker', {
@@ -67,9 +67,9 @@ function deleteTickerWatchlist (data) {
 }
 
 // Get WatchList Ticker Information
-async function getTicker (ticker) {
+function getTicker (ticker) {
   try {
-    const result = await fetchRequestIEX(`${ticker}/quote?token=Tpk_3fe75aad367342a89be38099c730b1a3`);
+    const result = fetchRequestIEX(`${ticker}/quote?token=Tpk_3fe75aad367342a89be38099c730b1a3`);
     return result;
   } catch (error) {
     console.error('Get Ticker Error: ', error);
@@ -108,20 +108,20 @@ function getChart (ticker) {
 //DB Fetch Request
 function fetchRequest (url, options) {
   return fetch(BASE_URL + url, options)
-  .then(response => response.json())
-  .then(responseJson => {return responseJson})
+  .then(res => res.status <= 400 ? res : Promise.reject())
+  .then(res => res.status === 204 ? res : res.json())
   .catch(error => {
-    console.error(`Error fetching ${url}: `, error);
+    console.log(`Error fetching ${url}:`, error);
   })
 }
 
-//API Fetch Request FIX:Return response.ok;
+//API Fetch Request FIX:Return response.ok:
 function fetchRequestIEX (url) {
   return fetch(IEX_URL + url)
-  .then(response => response.json())
-  .then(responseJson => {return responseJson})
+  .then(res => res.status <= 400 ? res : Promise.reject())
+  .then(res => res.status === 204 ? res : res.json())
   .catch(error => {
-    console.error(`Error fetch ${url}: `, error)
+    console.log(`Error fetching ${url}:`, error);
   })
 }
 

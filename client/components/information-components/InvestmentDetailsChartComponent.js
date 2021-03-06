@@ -3,11 +3,9 @@ import { StyleSheet, Text, View } from 'react-native';
 
 const InvestmentDetailsChartComponent = ({historicalPrices}) => {
 
-console.log('historicalPrices', historicalPrices)
-
   return (
     <View>
-      <Text>{historicalPrices[0].close}</Text>
+      <Text>{historicalPrices ? historicalPrices[0].close : 'Loading'}</Text>
     </View>
   )
 }

@@ -25,6 +25,7 @@ const App = () => {
           <Stack.Screen name="SignUp" component={SignUp} />
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Information" component={Information} />
+
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView >
