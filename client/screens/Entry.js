@@ -4,10 +4,12 @@ import { Button } from 'react-native-elements';
 import SvgBigLogoComponent from '../components/svg-components/SvgBigLogoComponent';
 
 
+
 const Entry = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+
       <View style={styles.title}>
         <Text style={styles.title1}>Wealth<Text style={styles.title2}>Seeker</Text></Text>
       </View>
@@ -16,7 +18,7 @@ const Entry = ({ navigation }) => {
         <SvgBigLogoComponent />
       </View>
 
-      <Text>Live Wealthy</Text>
+      <Text style={styles.catchphrase}>Live Wealthy</Text>
 
       <View style={styles.buttons}>
         <Button
@@ -34,6 +36,7 @@ const Entry = ({ navigation }) => {
           )}
         />
       </View>
+
     </View>
   )
 }
@@ -48,17 +51,27 @@ const styles = StyleSheet.create({
   },
   title1: {
     fontWeight: 'bold',
-    paddingVertical: 70,
+    paddingVertical: '20%',
     fontSize: 40,
   },
   title2: {
-    paddingVertical: 50,
     fontWeight: 'normal',
   },
   buttons: {
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
+  logo: {
+    alignItems: 'center',
+    paddingBottom: '15%'
+  },
+  catchphrase: {
+    paddingBottom: '10%',
+    fontSize: 40,
+    alignSelf: 'center',
+    fontFamily: 'born_ready_slanted',
+    color: '#488AFF',
+  }
 });
 
 
