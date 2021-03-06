@@ -20,17 +20,21 @@ const Entry = ({ navigation }) => {
 
       <Text style={styles.catchphrase}>Live Wealthy</Text>
 
-      <View style={styles.buttons}>
+      <View style={styles.buttons__container}>
         <Button
+          buttonStyle={styles.buttons__login}
           title="Login"
-          type="solid"
+          titleStyle={styles.buttons__login__title}
+          type="outline"
           onPress={() => navigation.push(
             'Login'
           )}
         />
         <Button
+          buttonStyle={styles.buttons__signup}
           title="Sign Up"
-          type="solid"
+          titleStyle={styles.buttons__signup__title}
+          type="outline"
           onPress={() => navigation.push(
             'SignUp'
           )}
@@ -57,13 +61,9 @@ const styles = StyleSheet.create({
   title2: {
     fontWeight: 'normal',
   },
-  buttons: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-  },
   logo: {
     alignItems: 'center',
-    paddingBottom: '15%'
+    paddingBottom: '10%'
   },
   catchphrase: {
     paddingBottom: '10%',
@@ -71,7 +71,40 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontFamily: 'born_ready_slanted',
     color: '#488AFF',
-  }
+  },
+  buttons__container: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  buttons__login: {
+    backgroundColor: '#488AFF',
+    minWidth: 160,
+    maxWidth: 250,
+    minHeight: 60,
+    maxHeight: 150,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: 'white',
+  },
+  buttons__login__title :{
+    color: 'white',
+    fontSize: 20,
+    alignSelf: 'center',
+  },
+  buttons__signup: {
+    backgroundColor: '#FFBA05',
+    minWidth: 160,
+    maxWidth: 250,
+    minHeight: 60,
+    maxHeight: 150,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: 'white',
+  },
+  buttons__signup__title: {
+    color: 'black',
+    fontSize: 20,
+  },
 });
 
 

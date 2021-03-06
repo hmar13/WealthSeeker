@@ -23,20 +23,36 @@ const SignUp = ({ navigation }) => {
         <HeaderComponent />
       </View>
 
-      <Input
-        placeholder="Username/Email"
-        onChangeText={value => setUsername(value)}
-      />
-      <Input
-        placeholder="Password"
-        onChangeText={value => setUserPassword(value)}
-      />
-      <Input
-        placeholder="Email"
-        onChangeText={value => setUserEmail(value)}
+      <View style={styles.input__container1}>
+        <Input
+          inputStyle={styles.input}
+          inputContainerStyle={styles.input__container}
+          placeholder="Username/Email"
+          onChangeText={value => setUsername(value)}
         />
+      </View>
+
+      <View style={styles.input__container2}>
+        <Input
+          inputStyle={styles.input}
+          inputContainerStyle={styles.input__container}
+          placeholder="Password"
+          onChangeText={value => setUserPassword(value)}
+        />
+      </View>
+
+      <View style={styles.input__container3}>
+        <Input
+          inputStyle={styles.input}
+          inputContainerStyle={styles.input__container}
+          placeholder="Email"
+          onChangeText={value => setUserEmail(value)}
+        />
+      </View>
 
       <Button
+        buttonStyle={styles.button}
+        titleStyle={styles.button__title}
         title="Create Account"
         type="solid"
         onPress={() =>
@@ -58,6 +74,46 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
+    paddingBottom: '12.5%',
+  },
+  input__container1: {
+    paddingBottom: '12.5%',
+    paddingHorizontal: '10%',
+  },
+  input__container2: {
+    paddingBottom: '12.5%',
+    paddingHorizontal: '10%',
+  },
+  input__container3: {
+    paddingBottom: '15%',
+    paddingHorizontal: '10%',
+  },
+  input__container: {
+    borderBottomWidth:0
+  },
+  input: {
+    borderRadius: 12,
+    paddingVertical: '8%',
+    backgroundColor: 'white',
+    borderWidth: 1.5,
+    borderColor: '#b6d0ff',
+    textAlign: 'center',
+    fontSize: 20,
+  },
+  button: {
+    alignSelf: 'center',
+    backgroundColor: '#FFBA05',
+    minWidth: 180,
+    maxWidth: 250,
+    minHeight: 60,
+    maxHeight: 150,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: 'white',
+  },
+  button__title: {
+    color: 'black',
+    fontSize: 20,
   },
 });
 
