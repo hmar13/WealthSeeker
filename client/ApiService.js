@@ -67,9 +67,10 @@ function deleteTickerWatchlist (data) {
 }
 
 // Get WatchList Ticker Information
-function getTicker (ticker) {
+async function getTicker (ticker) {
   try {
-    return fetchRequestIEX(`${ticker}/quote?token=Tpk_3fe75aad367342a89be38099c730b1a3`);
+    const result = await fetchRequestIEX(`${ticker}/quote?token=Tpk_3fe75aad367342a89be38099c730b1a3`);
+    return result;
   } catch (error) {
     console.error('Get Ticker Error: ', error);
   }
@@ -114,7 +115,7 @@ function fetchRequest (url, options) {
   })
 }
 
-//API Fetch Request
+//API Fetch Request FIX:Return response.ok;
 function fetchRequestIEX (url) {
   return fetch(IEX_URL + url)
   .then(response => response.json())

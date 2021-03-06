@@ -17,7 +17,7 @@ const WatchListEditListComponent = ({ setUserWatchlist, userId }) => {
   const handleDeleteSymbol = useCallback((ticker) => {
     setUserWatchlist((watchlist) => {
       if (watchlist) {
-        watchlist.filter(item => item !== ticker.symbol);
+        return watchlist.filter(item => item !== ticker.symbol);
       }
     })
   })
