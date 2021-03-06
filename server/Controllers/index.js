@@ -14,6 +14,7 @@ exports.checkUserInformation = async (req, res) => {
 
 exports.postNewUser = (req, res) => {
   try {
+    userModels.postNewUser(req.body);
     res.status(201);
     res.send(['Created User']);
   } catch (err) {
