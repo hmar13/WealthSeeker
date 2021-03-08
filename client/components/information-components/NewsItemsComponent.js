@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, TouchableHighlight } from 'react-native';
 
 const NewsItemsComponent = ({ title, newsChannel, imageUrl }) => {
   let image = {}
@@ -49,6 +49,8 @@ const styles = StyleSheet.create({
     width: '30%',
   },
   image: {
-    flex: 1
+    flex: 1,
+    borderRadius: 4,
+    overflow: 'hidden',
   },
 })

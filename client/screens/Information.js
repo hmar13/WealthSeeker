@@ -27,7 +27,7 @@ export default Information;
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: '5%',
+    flex: 1,
   },
   header__container: {
 
@@ -36,10 +36,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderRadius: 12,
+    paddingHorizontal: '5%',
+    paddingVertical: '5%',
   },
   news__container: {
-    borderWidth: 1,
-    borderRadius: 12,
-    paddingHorizontal: '2%',
+    paddingHorizontal: '5%',
+    paddingVertical: '5%',
   },
 })

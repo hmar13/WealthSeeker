@@ -44,6 +44,10 @@ export default NewsComponent;
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: 'white',
+    borderRadius: 20,
+    overflow: 'hidden',
+    paddingHorizontal: '2%',
   },
   title: {
     alignSelf: 'center',
