@@ -24,9 +24,9 @@ exports.postNewUser = (data) => {
   db.query(
     `
     INSERT INTO users (username, userpassword, useremail, userwatchlist)
-    VALUES ($1, $2, $3, $4)
+    VALUES ($1, $2, $3, '{}')
     `,
-    [data.username, data.userpassword, data.useremail, data.userwatchList]
+    [data.username, data.userpassword, data.useremail]
   );
 };
 
