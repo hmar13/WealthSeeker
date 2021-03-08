@@ -21,6 +21,7 @@ const WatchListEditListComponent = ({ setUserWatchlistInfo, userId }) => {
         return watchlist.filter(item => item.symbol !== ticker.symbol);
       }
     })
+    setSymbol('');
   })
 
 
@@ -39,6 +40,7 @@ const WatchListEditListComponent = ({ setUserWatchlistInfo, userId }) => {
 
       <Input
       placeholder="Ticker"
+      value={symbol}
       onChangeText={value => setSymbol(value.toUpperCase())}
       autoCapitalize="characters"
       />

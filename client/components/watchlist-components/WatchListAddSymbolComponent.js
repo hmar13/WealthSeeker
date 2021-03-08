@@ -19,7 +19,8 @@ const WatchListAddSymbolComponent = ({ setUserWatchlistInfo, userId }) => {
         userId: userId
       })
       //FIX: Stop from adding Duplicate Symbols && Control When Ticker is not real
-      setUserWatchlistInfo((watchlist) => ([...watchlist, result]))
+      setUserWatchlistInfo((watchlist) => ([...watchlist, result]));
+      setSymbol('');
     }
   }, []);
 
@@ -37,6 +38,7 @@ const WatchListAddSymbolComponent = ({ setUserWatchlistInfo, userId }) => {
 
       <Input
       placeholder="Ticker"
+      value={symbol}
       onChangeText={value => setSymbol(value)}
       autoCapitalize="characters"
       />

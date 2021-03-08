@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+// import { LineChart, Grid } from 'react-native-svg-charts';
 
 const InvestmentDetailsChartComponent = ({historicalPrices}) => {
-  const [dates, setDates] = useState();
-  const [priices, setPrices] = useState();
 
   console.log(historicalPrices);
 

@@ -19,7 +19,9 @@ const Home = ({ route, navigation }) => {
     <View style={styles.container}>
 
       <View style={styles.header__container}>
-        <HeaderComponent />
+        <HeaderComponent
+        navigation={navigation}
+        />
       </View>
 
       <View style={styles.searchbar__container}>
@@ -46,10 +48,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header__container: {
-    flex: 1,
   },
   searchbar__container: {
-    flex: 1,
   },
   watchlist__container: {
     flex: 8,

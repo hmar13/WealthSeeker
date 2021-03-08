@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, TouchableHighlight } from 'react-native';
 import HeaderComponent from '../components/HeaderComponent';
 import NewsComponent from '../components/information-components/NewsComponent';
 import InvestmentDetailsComponent from '../components/information-components/InvestmentDetailsComponent';
@@ -9,6 +9,7 @@ const Information = ({ route }) => {
 
   return (
     <View style={styles.container}>
+
       <View style={styles.header__container}>
         <HeaderComponent />
       </View>
