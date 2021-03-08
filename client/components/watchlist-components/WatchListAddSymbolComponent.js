@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import ApiService from '../../ApiService';
 
-const WatchListAddSymbolComponent = ({ setUserWatchlist, userId, watchlist }) => {
+const WatchListAddSymbolComponent = ({ setUserWatchlistInfo, userId }) => {
   const [symbol, setSymbol] = useState();
 
   //Get the ticker information {} on click
@@ -18,14 +18,17 @@ const WatchListAddSymbolComponent = ({ setUserWatchlist, userId, watchlist }) =>
         userId: userId
       })
       //FIX: Stop from adding Duplicate Symbols && Control When Ticker is not real
-      setUserWatchlist((watchlist) => ([...watchlist, result.symbol]))
+      setUserWatchlistInfo((watchlist) => ([...watchlist, result]))
     }
   }, []);
 
   return (
-    <View>
+    <View style={styles.container}>
       <Button
+        buttonStyle={styles.button}
+        titleStyle={styles.button__title}
         title="Add Symbol"
+        type="solid"
         onPress={() => {
           handleApiCall({symbol})
         }}
@@ -34,9 +37,30 @@ const WatchListAddSymbolComponent = ({ setUserWatchlist, userId, watchlist }) =>
       <Input
       placeholder="Ticker"
       onChangeText={value => setSymbol(value)}
+      autoCapitalize="characters"
       />
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: '5%',
+    paddingHorizontal: '5%',
+  },
+  button: {
+    alignSelf: 'center',
+    backgroundColor: '#E5E5E5',
+    minWidth: 100,
+    maxWidth: 150,
+    minHeight: 40,
+    maxHeight: 90,
+    borderRadius: 20,
+  },
+  button__title: {
+    color: 'black',
+    fontSize: 12,
+  },
+})
 
 export default WatchListAddSymbolComponent;

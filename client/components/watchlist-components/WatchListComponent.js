@@ -1,35 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import WatchListItemsComponent from './WatchListItemsComponent';
 import WatchListAddSymbolComponent from './WatchListAddSymbolComponent';
 import WatchListEditListComponent from './WatchListEditListComponent';
+import ApiService from '../../ApiService';
 
 const WatchListComponent = ({ watchlist, userId, navigation }) => {
-  const [userWatchlist, setUserWatchlist] = useState();
+  const [userWatchlist, setUserWatchlist] = useState();  //Holds tickers
+  const [userWatchlistInfo, setUserWatchlistInfo] = useState([]); //Holds ticker data
+
+  // Callback to Fetch Watchlist Info
+  const handleApiWatchlist = useCallback(async (ticker) => {
+    const result = await ApiService.getTicker(ticker);
+    if (!result || result.length ===0) {
+      console.log('Ticker Not Available');
+    } else {
+      setUserWatchlistInfo((userWatchlistInfo) => ([...userWatchlistInfo, result]))
+    }
+  }, [])
 
   //Save watchlist in state userWatchlist
   useEffect(() => {
     if (watchlist) {
       setUserWatchlist(watchlist);
+      watchlist.forEach((ticker) => {handleApiWatchlist(ticker)})
     } else {
       console.log('No Watchlist in WatchListComponent');
     }
   }, [])
 
   return (
-    <View style={styles.watchlist}>
+    <View style={styles.container}>
 
       <View style={styles.watchlist__header}>
         <WatchListAddSymbolComponent
-        setUserWatchlist={setUserWatchlist}
+        setUserWatchlistInfo={setUserWatchlistInfo}
         userId={userId}
         watchlist={watchlist}
         />
 
-        <Text>Watchlist</Text>
+        <Text style={styles.title}>Watchlist</Text>
 
         <WatchListEditListComponent
-          setUserWatchlist={setUserWatchlist}
+          setUserWatchlistInfo={setUserWatchlistInfo}
           userId={userId}
           watchlist={watchlist}
         />
@@ -37,11 +50,14 @@ const WatchListComponent = ({ watchlist, userId, navigation }) => {
 
       <View style={styles.watchlist__items}>
         <FlatList
-        data={userWatchlist}
-        keyExtractor={item => item}
+        data={userWatchlistInfo}
+        keyExtractor={item => item.symbol}
         renderItem={({ item }) =>
         <WatchListItemsComponent
-        name={item}
+        name={item.companyName}
+        ticker={item.symbol}
+        price={item.latestPrice}
+        percentChange={item.changePercent}
         navigation={navigation}/>
       }
         />
@@ -54,9 +70,9 @@ const WatchListComponent = ({ watchlist, userId, navigation }) => {
 export default WatchListComponent;
 
 const styles = StyleSheet.create({
-  watchlist: {
+  container: {
     backgroundColor: 'white',
-    paddingHorizontal: 10,
+    borderRadius: 12,
   },
   watchlist__header: {
     flexDirection: 'row',
@@ -65,6 +81,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   watchlist__items: {
-    alignItems: 'center',
+    borderWidth: 1.5,
+  },
+  title: {
+    fontSize: 18,
+    alignSelf: 'center',
   },
 })

@@ -18,15 +18,15 @@ const Home = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
 
-      <View>
+      <View style={styles.header__container}>
         <HeaderComponent />
       </View>
 
-      <View>
+      <View style={styles.searchbar__container}>
         <SearchBarComponent />
       </View>
 
-      <View>
+      <View style={styles.watchlist__container}>
         {userInformation ? <WatchListComponent
           watchlist={userInformation.userwatchlist}
           userId={userInformation.id}
@@ -42,5 +42,20 @@ const Home = ({ route, navigation }) => {
 export default Home;
 
 const styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+  },
+  header__container: {
+    flex: 1,
+  },
+  searchbar__container: {
+    flex: 1,
+  },
+  watchlist__container: {
+    flex: 8,
+    paddingHorizontal: '5%',
+    paddingVertical: '5%',
+    borderWidth: 1,
+    borderRadius: 12,
+  }
 })
