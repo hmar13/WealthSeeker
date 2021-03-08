@@ -30,12 +30,12 @@ const Login = ({ navigation }) => {
         <Input
           inputStyle={styles.input}
           inputContainerStyle={styles.input__container}
-          placeholder="Username/Email"
+          placeholder="Username"
           onChangeText={value => setUsername(value)}
         />
-        </View>
+      </View>
 
-        <View style={styles.input__container2}>
+      <View style={styles.input__container2}>
         <Input
           inputStyle={styles.input}
           inputContainerStyle={styles.input__container}

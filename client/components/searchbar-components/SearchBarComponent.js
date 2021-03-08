@@ -16,7 +16,6 @@ const SearchBarComponent = () => {
         inputStyle={styles.input}
         inputContainerStyle={styles.input__container__inner}
         placeholder="Search Investments..."
-        placeHolderTextColor={styles.placeholder}
         />
       </View>
 
@@ -40,20 +39,19 @@ const styles = StyleSheet.create({
     paddingLeft: '5%',
   },
   input__container__outer: {
+    flex: 1,
     width: '50%',
+    paddingHorizontal: 10,
   },
   input__container__inner: {
-    borderBottomWidth: 0,
+    borderBottomWidth:0,
   },
   input: {
-    borderRadius: 12,
-    // backgroundColor: '#CCE9F4',
+    borderRadius: 6,
+    backgroundColor: '#D9F4FF',
     color: 'black',
     fontSize: 15,
     fontWeight: 'bold',
-  },
-  placeholder: {
-    color: 'black',
   },
   account__container: {
     paddingRight: '5%',

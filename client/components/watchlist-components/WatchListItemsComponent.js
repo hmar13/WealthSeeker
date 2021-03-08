@@ -16,9 +16,12 @@ const WatchListItemsComponent = ({ ticker, name, price, percentChange, navigatio
 
   return (
     <View style={styles.container1}>
-    <TouchableHighlight onPress={() => navigation.push('Information', {
+    <TouchableHighlight
+    onPress={() => navigation.push('Information', {
       ticker: ticker
-    })}>
+    })}
+    underlayColor="#ffffff"
+    >
       <View style={styles.container2}>
 
         <View style={styles.name__container}>

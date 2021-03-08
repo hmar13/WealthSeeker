@@ -27,7 +27,7 @@ const SignUp = ({ navigation }) => {
         <Input
           inputStyle={styles.input}
           inputContainerStyle={styles.input__container}
-          placeholder="Username/Email"
+          placeholder="Username"
           onChangeText={value => setUsername(value)}
         />
       </View>
