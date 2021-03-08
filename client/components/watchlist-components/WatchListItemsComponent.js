@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 
 const WatchListItemsComponent = ({ ticker, name, price, percentChange, navigation }) => {
+  const [greenRed, setGreenRed] = useState('#FF0000')
+
+  // console.log(greenRed)
+
+  useEffect(() => {
+    if ((percentChange > 0) && (percentChange !== null)) {
+      setGreenRed('#34A119');
+    } else {
+      setGreenRed('#FF0000');
+    }
+  },[])
 
   return (
     <View style={styles.container1}>
@@ -20,7 +31,7 @@ const WatchListItemsComponent = ({ ticker, name, price, percentChange, navigatio
         </View>
 
 
-        <View style={styles.percent__container}>
+        <View style={[styles.percent__container, {backgroundColor: greenRed}]}>
           <Text style={styles.percent}>{(percentChange * 100).toFixed(2)}%</Text>
         </View>
 
@@ -37,12 +48,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   container2: {
-    backgroundColor: '#ADE8FF',
     flexDirection: 'row',
   },
   name__container: {
     alignContent: 'center',
-    backgroundColor: 'red',
     width: '50%',
   },
   ticker: {
@@ -54,9 +63,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   price__container: {
-    backgroundColor: 'yellow',
     alignContent: 'center',
     width: '25%',
+    alignSelf: 'center',
   },
   price: {
     fontSize: 18,
@@ -64,14 +73,16 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   percent__container: {
-    backgroundColor: 'lightblue',
     alignContent: 'center',
     width: '25%',
+    alignSelf: 'center',
+    borderRadius: 20,
   },
   percent: {
     fontSize: 18,
     fontWeight: 'bold',
     alignSelf: 'center',
     color: 'white',
+    paddingVertical: 4,
   },
 })

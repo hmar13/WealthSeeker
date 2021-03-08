@@ -7,6 +7,7 @@ import ApiService from '../../ApiService';
 
 const WatchListComponent = ({ watchlist, userId, navigation }) => {
   const [userWatchlistInfo, setUserWatchlistInfo] = useState([]); //Holds ticker data
+  // const [backgroundColor, setBackgroundColor] = useState('#F8FDFF') //Hold white or #F8FDFF
 
   // Callback to Fetch Watchlist Info
   const handleApiWatchlist = useCallback(async (ticker) => {
@@ -28,6 +29,15 @@ const WatchListComponent = ({ watchlist, userId, navigation }) => {
       console.log('No Watchlist in WatchListComponent');
     }
   }, [])
+
+  //Background colour of items:
+  // const changeColor = useCallback(() => {
+  //   if (backgroundColor === '#F8FDFF') {
+  //     setBackgroundColor('white')
+  //   } else {
+  //     setBackgroundColor('#F8FDFF')
+  //   }
+  // },[])
 
   return (
     <View style={styles.container}>
@@ -52,13 +62,14 @@ const WatchListComponent = ({ watchlist, userId, navigation }) => {
         <FlatList
         data={userWatchlistInfo}
         keyExtractor={item => item.symbol}
-        renderItem={({ item }) =>
-        <WatchListItemsComponent
-        name={item.companyName}
-        ticker={item.symbol}
-        price={item.latestPrice}
-        percentChange={item.changePercent}
-        navigation={navigation}/>
+        renderItem={({ item }) => (
+          <WatchListItemsComponent
+          name={item.companyName}
+          ticker={item.symbol}
+          price={item.latestPrice}
+          percentChange={item.changePercent}
+          navigation={navigation}/>
+        )
       }
         />
       </View>
