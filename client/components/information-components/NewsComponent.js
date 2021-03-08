@@ -22,8 +22,8 @@ const NewsComponent = ({ticker}) => {
   }, [])
 
   return (
-    <View>
-      <Text></Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>News</Text>
       <FlatList
         data={news}
         keyExtractor={item => item}
@@ -39,4 +39,12 @@ const NewsComponent = ({ticker}) => {
 
 export default NewsComponent;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+
+  },
+  title: {
+    alignSelf: 'center',
+    fontSize: 18,
+  },
+})

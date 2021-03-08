@@ -1,6 +1,7 @@
 //Instead of localhost, put your IP address:
 const BASE_URL = 'http://192.168.0.80:3001/'
 const IEX_URL = 'https://sandbox.iexapis.com/stable/stock/';
+const NEWS_URL = 'http://newsapi.org/v2/everything?q=';
 
 //Confirm if a user is in the DB to login:
 function loginInformation (data) {
@@ -79,7 +80,7 @@ function getTicker (ticker) {
 // Get News Ticker Information
 function getNews (ticker) {
   try {
-    return fetchRequestIEX(`${ticker}/news/last/1?token=Tpk_3fe75aad367342a89be38099c730b1a3`);
+    return fetchRequestNews(`${ticker}&from=2021-02-08&sortBy=publishedAt&apiKey=0c2c5772c8564908a9cd7a23139d73ad`);
   } catch (error) {
     console.error('Get News Ticker Error: ', error);
   }
@@ -115,9 +116,19 @@ function fetchRequest (url, options) {
   })
 }
 
-//API Fetch Request FIX:Return response.ok:
+//API IEX Fetch Request
 function fetchRequestIEX (url) {
   return fetch(IEX_URL + url)
+  .then(res => res.status <= 400 ? res : Promise.reject())
+  .then(res => res.status === 204 ? res : res.json())
+  .catch(error => {
+    console.log(`Error fetching ${url}:`, error);
+  })
+}
+
+//API NEWS Fetch Request
+function fetchRequestNews (url) {
+  return fetch(NEWS_URL + url)
   .then(res => res.status <= 400 ? res : Promise.reject())
   .then(res => res.status === 204 ? res : res.json())
   .catch(error => {

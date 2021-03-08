@@ -72,7 +72,8 @@ export default WatchListComponent;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    borderRadius: 12,
+    borderRadius: 20,
+    overflow: 'hidden',
   },
   watchlist__header: {
     flexDirection: 'row',
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   watchlist__items: {
-    borderWidth: 1.5,
+    paddingBottom: '3%',
   },
   title: {
     fontSize: 18,
