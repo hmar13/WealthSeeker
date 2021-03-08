@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import HeaderComponent from '../components/HeaderComponent';
 import NewsComponent from '../components/information-components/NewsComponent';
 import InvestmentDetailsComponent from '../components/information-components/InvestmentDetailsComponent';
+import SearchBarComponent from '../components/searchbar-components/SearchBarComponent';
 
 const Information = ({ route }) => {
 
@@ -11,6 +12,8 @@ const Information = ({ route }) => {
       <View style={styles.header__container}>
         <HeaderComponent />
       </View>
+
+      <SearchBarComponent />
 
       <View style={styles.chart__container}>
         <InvestmentDetailsComponent ticker={route.params.ticker ? route.params.ticker : null}/>

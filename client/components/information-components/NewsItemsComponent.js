@@ -8,7 +8,6 @@ const NewsItemsComponent = ({ title, newsChannel, imageUrl }) => {
     image = { uri: imageUrl}
   }
 
-  console.log(image)
   return (
     <View style={styles.container}>
 

@@ -13,7 +13,6 @@ const NewsComponent = ({ticker}) => {
       console.log('Ticker Not Available');
     } else {
       setNews(result.articles);
-      console.log(result.articles)
     }
   }, [])
 
