@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import ApiService from '../../ApiService';
 
-const WatchListAddSymbolComponent = ({ setUserWatchlistInfo, userId }) => {
+const WatchListAddSymbolComponent = ({ setUserWatchlistInfo, watchlist, userId }) => {
   const [symbol, setSymbol] = useState();
 
   //Get the ticker information {} on click
@@ -13,12 +13,11 @@ const WatchListAddSymbolComponent = ({ setUserWatchlistInfo, userId }) => {
       console.log('Ticker Not Available');
     } else {
       //Add to DB Watchlist
-      console.log(ticker.symbol)
       ApiService.addToWatchlistDB({
         ticker: ticker.symbol,
         userId: userId
       })
-      //FIX: Stop from adding Duplicate Symbols && Control When Ticker is not real
+      //FIX: Stop from adding Duplicate Symbols
       setUserWatchlistInfo((watchlist) => ([...watchlist, result]));
       setSymbol('');
     }

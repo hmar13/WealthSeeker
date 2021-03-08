@@ -45,6 +45,7 @@ const WatchListComponent = ({ watchlist, userId, navigation }) => {
       <View style={styles.watchlist__header}>
         <WatchListAddSymbolComponent
         setUserWatchlistInfo={setUserWatchlistInfo}
+        watchlist={userWatchlistInfo}
         userId={userId}
         watchlist={watchlist}
         />
