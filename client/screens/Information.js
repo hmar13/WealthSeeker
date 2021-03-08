@@ -5,7 +5,6 @@ import NewsComponent from '../components/information-components/NewsComponent';
 import InvestmentDetailsComponent from '../components/information-components/InvestmentDetailsComponent';
 
 const Information = ({ route }) => {
-  // console.log( route.params.ticker) //TSLA
 
   return (
     <View style={styles.container}>
@@ -28,7 +27,7 @@ export default Information;
 
 const styles = StyleSheet.create({
   container: {
-
+    paddingHorizontal: '5%',
   },
   header__container: {
 
@@ -41,5 +40,6 @@ const styles = StyleSheet.create({
   news__container: {
     borderWidth: 1,
     borderRadius: 12,
+    paddingHorizontal: '2%',
   },
 })

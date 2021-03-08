@@ -12,7 +12,8 @@ const NewsComponent = ({ticker}) => {
     if (result.length === 0) {
       console.log('Ticker Not Available');
     } else {
-      setNews(result);
+      setNews(result.articles);
+      console.log(result.articles)
     }
   }, [])
 
@@ -26,10 +27,12 @@ const NewsComponent = ({ticker}) => {
       <Text style={styles.title}>News</Text>
       <FlatList
         data={news}
-        keyExtractor={item => item}
+        keyExtractor={item => item.url}
         renderItem={({ item }) =>
           <NewsItemsComponent
-          newsItem={item}
+          title={item.title}
+          newsChannel={item.source.name}
+          imageUrl={item.urlToImage}
           />
         }
       />
@@ -41,7 +44,6 @@ export default NewsComponent;
 
 const styles = StyleSheet.create({
   container: {
-
   },
   title: {
     alignSelf: 'center',

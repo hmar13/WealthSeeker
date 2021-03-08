@@ -13,8 +13,9 @@ const WatchListAddSymbolComponent = ({ setUserWatchlistInfo, userId }) => {
       console.log('Ticker Not Available');
     } else {
       //Add to DB Watchlist
+      console.log(ticker.symbol)
       ApiService.addToWatchlistDB({
-        ticker: result.symbol,
+        ticker: ticker.symbol,
         userId: userId
       })
       //FIX: Stop from adding Duplicate Symbols && Control When Ticker is not real

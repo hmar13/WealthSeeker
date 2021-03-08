@@ -6,7 +6,6 @@ import WatchListEditListComponent from './WatchListEditListComponent';
 import ApiService from '../../ApiService';
 
 const WatchListComponent = ({ watchlist, userId, navigation }) => {
-  const [userWatchlist, setUserWatchlist] = useState();  //Holds tickers
   const [userWatchlistInfo, setUserWatchlistInfo] = useState([]); //Holds ticker data
 
   // Callback to Fetch Watchlist Info
@@ -22,8 +21,9 @@ const WatchListComponent = ({ watchlist, userId, navigation }) => {
   //Save watchlist in state userWatchlist
   useEffect(() => {
     if (watchlist) {
-      setUserWatchlist(watchlist);
-      watchlist.forEach((ticker) => {handleApiWatchlist(ticker)})
+      if(userWatchlistInfo.length === 0) {
+        watchlist.forEach((ticker) => {handleApiWatchlist(ticker)})
+      }
     } else {
       console.log('No Watchlist in WatchListComponent');
     }
