@@ -19,13 +19,13 @@ const Home = ({ route, navigation }) => {
     <View style={styles.container}>
 
       <View style={styles.header__container}>
-        <HeaderComponent
-        navigation={navigation}
-        />
+        <HeaderComponent />
       </View>
 
       <View style={styles.searchbar__container}>
-        <SearchBarComponent />
+        <SearchBarComponent
+          navigation={navigation}
+        />
       </View>
 
       <View style={styles.watchlist__container}>

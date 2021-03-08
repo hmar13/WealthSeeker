@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 const InvestmentDetailsChartComponent = ({historicalPrices}) => {
 
-  console.log(historicalPrices);
+  // console.log(historicalPrices);
 
   return (
     <View>

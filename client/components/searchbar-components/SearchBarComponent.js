@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Input } from 'react-native-elements';
 import SvgMenuComponent from '../svg-components/SvgMenuComponent';
 import SvgAccountComponent from '../svg-components/SvgAccountComponent';
 
-const SearchBarComponent = () => {
+const SearchBarComponent = ({navigation}) => {
+  const [symbol, setSymbol] = useState();
+
   return (
     <View style={styles.container}>
       <View style={styles.menu__container}>
@@ -16,6 +18,12 @@ const SearchBarComponent = () => {
         inputStyle={styles.input}
         inputContainerStyle={styles.input__container__inner}
         placeholder="Search Investments..."
+        onChangeText={value => setSymbol(value.toUpperCase())}
+        onEndEditing={() => {
+          navigation.push('Information', {
+            ticker: symbol
+          })
+        }}
         />
       </View>
 

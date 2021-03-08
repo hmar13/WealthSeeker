@@ -40,6 +40,9 @@ const WatchListAddSymbolComponent = ({ setUserWatchlistInfo, watchlist, userId }
       value={symbol}
       onChangeText={value => setSymbol(value)}
       autoCapitalize="characters"
+      onEndEditing={() => {
+        handleApiCall({symbol})
+      }}
       />
     </View>
   )

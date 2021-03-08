@@ -5,16 +5,20 @@ import NewsComponent from '../components/information-components/NewsComponent';
 import InvestmentDetailsComponent from '../components/information-components/InvestmentDetailsComponent';
 import SearchBarComponent from '../components/searchbar-components/SearchBarComponent';
 
-const Information = ({ route }) => {
+const Information = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
 
       <View style={styles.header__container}>
-        <HeaderComponent />
+        <HeaderComponent
+        navigation={navigation}
+        />
       </View>
 
-      <SearchBarComponent />
+      <SearchBarComponent
+        navigation={navigation}
+      />
 
       <View style={styles.chart__container}>
         <InvestmentDetailsComponent ticker={route.params.ticker ? route.params.ticker : null}/>

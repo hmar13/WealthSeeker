@@ -1,18 +1,29 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import SvgLogoComponent from './svg-components/SvgLogoComponent';
 
-const HeaderComponent = () => {
+const HeaderComponent = ({navigation}) => {
+
+  //Put in back navigation
 
   return (
-    <View style={styles.container}>
-      <SvgLogoComponent
-      style={styles.svg}
-      />
-      <Text style={styles.header__title1}>Wealth<Text style={styles.header__title2}>Seeker</Text></Text>
-      <View></View>
 
-    </View>
+      <View style={styles.container}>
+        <TouchableHighlight
+        >
+
+          <View style={styles.container2}>
+            <SvgLogoComponent
+            style={styles.svg}
+            />
+            <Text style={styles.header__title1}>Wealth<Text style={styles.header__title2}>Seeker
+            </Text></Text>
+            <View></View>
+          </View>
+
+        </TouchableHighlight>
+      </View>
+
   )
 }
 
@@ -21,9 +32,12 @@ export default HeaderComponent;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFBA05',
-    flexDirection: 'row',
     width: '100%',
+  },
+  container2: {
+    width: '95%',
     justifyContent: 'space-between',
+    flexDirection: 'row',
   },
   svg:{
     alignSelf: 'center',
