@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import HeaderComponent from '../components/HeaderComponent';
 import ApiService from '../ApiService';
@@ -25,7 +25,7 @@ const SignUp = ({ navigation }) => {
         />
       </View>
 
-      <View style={styles.input__container1}>
+      <View style={styles.user__container}>
         <Input
           inputStyle={styles.input}
           inputContainerStyle={styles.input__container}
@@ -34,7 +34,7 @@ const SignUp = ({ navigation }) => {
         />
       </View>
 
-      <View style={styles.input__container2}>
+      <View style={styles.password__container}>
         <Input
           inputStyle={styles.input}
           inputContainerStyle={styles.input__container}
@@ -44,7 +44,7 @@ const SignUp = ({ navigation }) => {
         />
       </View>
 
-      <View style={styles.input__container3}>
+      <View style={styles.email__container}>
         <Input
           inputStyle={styles.input}
           inputContainerStyle={styles.input__container}
@@ -81,15 +81,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingBottom: '12.5%',
   },
-  input__container1: {
+  user__container: {
     paddingBottom: '12.5%',
     paddingHorizontal: '10%',
   },
-  input__container2: {
+  password__container: {
     paddingBottom: '12.5%',
     paddingHorizontal: '10%',
   },
-  input__container3: {
+  email__container: {
     paddingBottom: '15%',
     paddingHorizontal: '10%',
   },
