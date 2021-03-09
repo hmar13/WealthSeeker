@@ -49,24 +49,25 @@ export default WatchListItemsComponent;
 const styles = StyleSheet.create({
   container1: {
     flex: 1,
+    paddingHorizontal: '2%',
   },
   container2: {
     flexDirection: 'row',
+    justifyContent: 'space-around'
   },
   name__container: {
-    alignContent: 'center',
-    width: '50%',
+    width: '40%',
   },
   ticker: {
     fontSize: 18,
     fontWeight: 'bold',
-    alignSelf: 'center',
+    paddingLeft: '5%',
   },
   name: {
-    alignSelf: 'center',
+    paddingLeft: '5%',
+    fontSize: 10,
   },
   price__container: {
-    alignContent: 'center',
     width: '25%',
     alignSelf: 'center',
   },
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   percent__container: {
-    alignContent: 'center',
+    // alignContent: 'center',
     width: '25%',
     alignSelf: 'center',
     borderRadius: 20,
