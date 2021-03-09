@@ -18,11 +18,13 @@ const SearchBarComponent = ({navigation}) => {
         inputStyle={styles.input}
         inputContainerStyle={styles.input__container__inner}
         placeholder="Search Investments..."
-        onChangeText={value => setSymbol(value.toUpperCase())}
+        value={symbol}
+        onChangeText={value => setSymbol(value)}
         onEndEditing={() => {
           navigation.push('Information', {
-            ticker: symbol
+            ticker: symbol.toUpperCase()
           })
+          setSymbol('');
         }}
         />
       </View>
