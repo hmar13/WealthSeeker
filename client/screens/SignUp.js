@@ -20,7 +20,9 @@ const SignUp = ({ navigation }) => {
     <View style={styles.container}>
 
       <View style={styles.header}>
-        <HeaderComponent />
+        <HeaderComponent
+          navigation={navigation}
+        />
       </View>
 
       <View style={styles.input__container1}>

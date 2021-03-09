@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import SvgLogoComponent from './svg-components/SvgLogoComponent';
 
 const HeaderComponent = ({navigation}) => {
 
-  //Go back to Home Page
+  const goBack = useCallback(() => {
+    navigation.goBack();
+  })
 
   return (
 
       <View style={styles.container}>
-        <TouchableHighlight>
+        <TouchableHighlight
+        onPress={goBack}
+        underlayColor="#ffffff"
+        >
 
           <View style={styles.container2}>
             <SvgLogoComponent

@@ -12,7 +12,7 @@ const Information = ({ route, navigation }) => {
 
       <View style={styles.header__container}>
         <HeaderComponent
-        navigation={navigation}
+          navigation={navigation}
         />
       </View>
 
