@@ -80,7 +80,7 @@ function getTicker (ticker) {
 // Get News Ticker Information
 function getNews (ticker) {
   try {
-    return fetchRequestNews(`${ticker}&from=2021-02-09&sortBy=publishedAt&apiKey=0c2c5772c8564908a9cd7a23139d73ad`);
+    return fetchRequestNews(`${ticker}&from=2021-03-08&to=2021-03-08&sortBy=popularity&apiKey=0c2c5772c8564908a9cd7a23139d73ad`);
   } catch (error) {
     console.error('Get News Ticker Error: ', error);
   }
