@@ -42,9 +42,12 @@ const styles = StyleSheet.create({
   },
   chart__container: {
     alignItems: 'center',
+    backgroundColor: 'white',
+    borderRadius: 20,
+    paddingHorizontal: '5%',
   },
   news__container: {
     paddingHorizontal: '5%',
-    paddingVertical: '5%',
+    paddingTop: '2%',
   },
 })

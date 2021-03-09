@@ -67,7 +67,6 @@ export default ChartComponent;
 const styles = StyleSheet.create({
   ticker: {
     alignSelf: 'center',
-    fontSize: 15,
-    fontWeight: 'bold',
+    fontSize: 18,
   }
 })

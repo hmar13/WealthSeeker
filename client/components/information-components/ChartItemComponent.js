@@ -16,7 +16,7 @@ const ChartItemComponent = ({closePrices, closeDates}) => {
             }
           ]
         }}
-        width={Dimensions.get("window").width}
+        width={Dimensions.get("window").width/1.05}
         height={220}
         yAxisLabel="$"
         // yAxisSuffix="Date"
@@ -37,7 +37,6 @@ const ChartItemComponent = ({closePrices, closeDates}) => {
         bezier
         style={{
           borderRadius: 16,
-          width: '100%',
         }}
       />
     </View>
@@ -48,5 +47,6 @@ export default ChartItemComponent;
 
 const styles = StyleSheet.create({
   container: {
+    width: '99%',
   }
 })
