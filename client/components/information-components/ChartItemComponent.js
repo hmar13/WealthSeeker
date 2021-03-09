@@ -2,33 +2,24 @@ import React from 'react';
 import { StyleSheet, View, Dimensions } from 'react-native';
 import { LineChart } from "react-native-chart-kit";
 
-const ChartItemComponent = ({historicalPrices}) => {
-
-  console.log(historicalPrices);
+const ChartItemComponent = ({closePrices, closeDates}) => {
 
   return (
-    <View>
+    <View style={styles.container}>
       {/* <Text>Bezier Line Chart</Text> */}
       <LineChart
         data={{
-          labels: ["January", "February", "March", "April", "May", "June"],
+          labels: closeDates,
           datasets: [
             {
-              data: [
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100
-              ]
+              data: closePrices
             }
           ]
         }}
         width={Dimensions.get("window").width} // from react-native
         height={220}
         yAxisLabel="$"
-        yAxisSuffix="k"
+        // yAxisSuffix="k"
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={{
           backgroundColor: "#e26a00",
@@ -58,4 +49,7 @@ const ChartItemComponent = ({historicalPrices}) => {
 
 export default ChartItemComponent;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+  }
+})

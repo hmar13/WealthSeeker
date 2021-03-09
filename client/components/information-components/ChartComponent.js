@@ -6,15 +6,19 @@ import ChartItemComponent from './ChartItemComponent';
 const ChartComponent = ({ticker}) => {
 
   // const [investmentStats, setInvestmentStats] = useState([]);
-  const [historicalPrices, setHistoricalPrices] = useState([]);
+  const [closePrices, setClosePrices] = useState([]);
+  const [closeDates, setCloseDates] = useState([]);
 
-  //Fetch Historical price endpoints to build charts
+  //Fetch Historical close prices to build chart
   const handleHisoricalPricesRequest = useCallback(async (ticker) => {
     const results = await ApiService.getChart(ticker);
     if (results.length === 0) {
       console.log('Ticker Not Available')
     } else {
-      setHistoricalPrices(results);
+      results.forEach((item) => {
+        setClosePrices((closePrices) => [...closePrices, item.close])
+        setCloseDates((closeDates) => [...closeDates, item.date.slice(8)])
+      })
     }
   }, [])
 
@@ -32,14 +36,25 @@ const ChartComponent = ({ticker}) => {
   //Fetch Investment Stats and Historical Prices
   useEffect(() => {
     // handleInvestmentStatsRequest(ticker);
-    handleHisoricalPricesRequest(ticker)
+    if (closePrices.length === 0) {
+      handleHisoricalPricesRequest(ticker);
+    } else {
+      console.log('Already Loaded Historical Prices');
+    }
   }, [])
+
+
+
 
   return (
     <View>
-      <ChartItemComponent
-        historicalPrices={historicalPrices.length > 0 ? historicalPrices : null}
-      />
+      {
+        closePrices.length > 18 ?
+        <ChartItemComponent
+        closePrices={closePrices}
+        closeDates={closeDates}
+        /> : <Text>Loading</Text>
+      }
       <View>
         <Text>Ticker Info</Text>
       </View>
