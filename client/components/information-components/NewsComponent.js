@@ -32,6 +32,7 @@ const NewsComponent = ({ticker}) => {
           title={item.title}
           newsChannel={item.source.name}
           imageUrl={item.urlToImage}
+          webUrl={item.url}
           />
         }
       />

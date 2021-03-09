@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, ImageBackground, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, TouchableHighlight, Linking } from 'react-native';
 
-const NewsItemsComponent = ({ title, newsChannel, imageUrl }) => {
+const NewsItemsComponent = ({ title, newsChannel, imageUrl, webUrl }) => {
   let image = {}
 
   if (imageUrl) {
@@ -9,21 +9,26 @@ const NewsItemsComponent = ({ title, newsChannel, imageUrl }) => {
   }
 
   return (
-    <View style={styles.container}>
+    <TouchableHighlight
+      onPress={() => {Linking.openURL(`${webUrl}`)}}
+      underlayColor="#ffffff"
+    >
+      <View style={styles.container}>
 
-      <View style={styles.text__container}>
-        <Text style={styles.text__title}>{title}</Text>
-        <Text style={styles.text__newsChannel}>{newsChannel}</Text>
+        <View style={styles.text__container}>
+          <Text style={styles.text__title}>{title}</Text>
+          <Text style={styles.text__newsChannel}>{newsChannel}</Text>
+        </View>
+
+        <View style={styles.image__container}>
+          <ImageBackground
+          source={image}
+          style={styles.image}>
+          </ImageBackground>
+        </View>
+
       </View>
-
-      <View style={styles.image__container}>
-        <ImageBackground
-        source={image}
-        style={styles.image}>
-        </ImageBackground>
-      </View>
-
-    </View>
+    </TouchableHighlight>
   )
 }
 
