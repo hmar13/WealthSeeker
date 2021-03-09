@@ -12,9 +12,9 @@ const SignUp = ({ navigation }) => {
 
 
   //Handler to Post New User Information
-  const handleCreateUser = useCallback((data) => {
+  const handleCreateUser = (data) => {
     return ApiService.createUser(data);
-  }, [])
+  }
 
   return (
     <View style={styles.container}>
