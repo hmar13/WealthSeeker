@@ -8,7 +8,7 @@ const WatchListEditListComponent = ({ setUserWatchlistInfo, userId }) => {
 
   const handleDeleteSymbolDB = useCallback((ticker) => {
     ApiService.deleteTickerWatchlist({
-      ticker: ticker.symbol,
+      ticker: ticker.symbol.toUpperCase(),
       userId: userId
     })
   }, [])
@@ -17,8 +17,7 @@ const WatchListEditListComponent = ({ setUserWatchlistInfo, userId }) => {
   const handleDeleteSymbol = useCallback((ticker) => {
     setUserWatchlistInfo((watchlist) => {
       if (watchlist) {
-        console.log('watchlist', watchlist[0].symbol)
-        return watchlist.filter(item => item.symbol !== ticker.symbol);
+        return watchlist.filter(item => item.symbol !== ticker.symbol.toUpperCase());
       }
     })
     setSymbol('');
@@ -41,8 +40,7 @@ const WatchListEditListComponent = ({ setUserWatchlistInfo, userId }) => {
       <Input
       placeholder="Ticker"
       value={symbol}
-      onChangeText={value => setSymbol(value.toUpperCase())}
-      autoCapitalize="characters"
+      onChangeText={value => setSymbol(value)}
       />
     </View>
   )

@@ -14,7 +14,7 @@ const WatchListAddSymbolComponent = ({ setUserWatchlistInfo, watchlist, userId }
     } else {
       //Add to DB Watchlist
       ApiService.addToWatchlistDB({
-        ticker: ticker.symbol,
+        ticker: ticker.symbol.toUpperCase(),
         userId: userId
       })
       //FIX: Stop from adding Duplicate Symbols
@@ -37,12 +37,12 @@ const WatchListAddSymbolComponent = ({ setUserWatchlistInfo, watchlist, userId }
 
       <Input
       placeholder="Ticker"
-      value={symbol}
       onChangeText={value => setSymbol(value)}
-      autoCapitalize="characters"
-      onEndEditing={() => {
-        handleApiCall({symbol})
-      }}
+      value={symbol}
+      // autoCapitalize="characters"
+      // onEndEditing={() => {
+      //   handleApiCall({symbol})
+      // }}
       />
     </View>
   )

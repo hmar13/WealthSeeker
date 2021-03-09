@@ -42,8 +42,6 @@ const styles = StyleSheet.create({
   },
   chart__container: {
     alignItems: 'center',
-    borderWidth: 1,
-    borderRadius: 12,
   },
   news__container: {
     paddingHorizontal: '5%',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Dimensions } from 'react-native';
 import { LineChart } from "react-native-chart-kit";
 
 const ChartItemComponent = ({closePrices, closeDates}) => {
@@ -16,29 +16,28 @@ const ChartItemComponent = ({closePrices, closeDates}) => {
             }
           ]
         }}
+        width={Dimensions.get("window").width}
+        height={220}
         yAxisLabel="$"
         // yAxisSuffix="Date"
         yAxisInterval={1}
         chartConfig={{
-          backgroundColor: "#00ADEF",
-          backgroundGradientFrom: "#00ADEF",
-          backgroundGradientTo: "#FFBA05",
+          backgroundGradientFrom: "#ffffff",
+          backgroundGradientTo: "#ffffff",
           decimalPlaces: 2,
-          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          style: {
-            borderRadius: 16
-          },
+          color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+          labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
           propsForDots: {
-            r: "2",
-            strokeWidth: "5",
-            stroke: "#000000"
+            r: "5",
+          },
+          propsForBackgroundLines: {
+            strokeDasharray: "" // solid background lines with no dashes
           }
         }}
         bezier
         style={{
-          marginVertical: 8,
-          borderRadius: 16
+          borderRadius: 16,
+          width: '100%',
         }}
       />
     </View>

@@ -43,13 +43,10 @@ const ChartComponent = ({ticker}) => {
     }
   }, [])
 
-
-
-
   return (
     <View>
       <View>
-        <Text>{ticker}</Text>
+        <Text style={styles.ticker}>{ticker}</Text>
       </View>
 
       <View>
@@ -67,4 +64,10 @@ const ChartComponent = ({ticker}) => {
 
 export default ChartComponent;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  ticker: {
+    alignSelf: 'center',
+    fontSize: 15,
+    fontWeight: 'bold',
+  }
+})
