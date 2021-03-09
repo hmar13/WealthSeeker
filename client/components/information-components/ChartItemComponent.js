@@ -47,6 +47,5 @@ export default ChartItemComponent;
 
 const styles = StyleSheet.create({
   container: {
-    width: '99%',
   }
 })
