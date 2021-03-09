@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import HeaderComponent from '../components/HeaderComponent';
 import NewsComponent from '../components/information-components/NewsComponent';
-import InvestmentDetailsComponent from '../components/information-components/InvestmentDetailsComponent';
+import ChartComponent from '../components/information-components/ChartComponent';
 import SearchBarComponent from '../components/searchbar-components/SearchBarComponent';
 
 const Information = ({ route, navigation }) => {
@@ -21,7 +21,7 @@ const Information = ({ route, navigation }) => {
       />
 
       <View style={styles.chart__container}>
-        <InvestmentDetailsComponent ticker={route.params.ticker ? route.params.ticker : null}/>
+        <ChartComponent ticker={route.params.ticker ? route.params.ticker : null}/>
       </View>
 
       <View style={styles.news__container}>
@@ -44,8 +44,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderRadius: 12,
-    paddingHorizontal: '5%',
-    paddingVertical: '5%',
   },
   news__container: {
     paddingHorizontal: '5%',

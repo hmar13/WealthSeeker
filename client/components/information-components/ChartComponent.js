@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import ApiService from '../../ApiService';
-import InvestmentDetailsChartComponent from './InvestmentDetailsChartComponent';
+import ChartItemComponent from './ChartItemComponent';
 
-const InvestmentDetailsComponent = ({ticker}) => {
+const ChartComponent = ({ticker}) => {
 
   // const [investmentStats, setInvestmentStats] = useState([]);
   const [historicalPrices, setHistoricalPrices] = useState([]);
@@ -37,13 +37,9 @@ const InvestmentDetailsComponent = ({ticker}) => {
 
   return (
     <View>
-
-      <View>
-        <InvestmentDetailsChartComponent
+      <ChartItemComponent
         historicalPrices={historicalPrices.length > 0 ? historicalPrices : null}
-        />
-      </View>
-
+      />
       <View>
         <Text>Ticker Info</Text>
       </View>
@@ -52,6 +48,6 @@ const InvestmentDetailsComponent = ({ticker}) => {
   )
 }
 
-export default InvestmentDetailsComponent;
+export default ChartComponent;
 
 const styles = StyleSheet.create({})
