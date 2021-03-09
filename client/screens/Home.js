@@ -54,6 +54,6 @@ const styles = StyleSheet.create({
   watchlist__container: {
     flex: 8,
     paddingHorizontal: '5%',
-    paddingVertical: '5%',
+    paddingBottom: '5%',
   }
 })

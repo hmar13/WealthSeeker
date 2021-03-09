@@ -40,8 +40,7 @@ export default SearchBarComponent;
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    paddingTop: '5%',
   },
   menu__container: {
     paddingLeft: '5%',
@@ -56,12 +55,13 @@ const styles = StyleSheet.create({
   },
   input: {
     borderRadius: 6,
-    backgroundColor: '#D9F4FF',
+    backgroundColor: '#FFFFFF',
     color: 'black',
     fontSize: 15,
     fontWeight: 'bold',
   },
   account__container: {
     paddingRight: '5%',
+    paddingTop: '2%',
   }
 })
