@@ -2,11 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, View, ImageBackground, TouchableHighlight, Linking } from 'react-native';
 
 const NewsItemsComponent = ({ title, newsChannel, imageUrl, webUrl }) => {
-  let image = {}
-
-  if (imageUrl) {
-    image = { uri: imageUrl}
-  }
 
   return (
     <TouchableHighlight
@@ -20,12 +15,14 @@ const NewsItemsComponent = ({ title, newsChannel, imageUrl, webUrl }) => {
           <Text style={styles.text__newsChannel}>{newsChannel}</Text>
         </View>
 
-        <View style={styles.image__container}>
-          <ImageBackground
-          source={image}
-          style={styles.image}>
-          </ImageBackground>
-        </View>
+        {imageUrl ?
+          <View style={styles.image__container}>
+            <ImageBackground
+            source={{ uri: imageUrl }}
+            style={styles.image}>
+            </ImageBackground>
+          </View>
+          : null}
 
       </View>
     </TouchableHighlight>
