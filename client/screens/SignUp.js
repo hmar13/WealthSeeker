@@ -60,9 +60,11 @@ const SignUp = ({ navigation }) => {
         type="solid"
         onPress={() =>
           {
-            if(username.length > 5 && userpassword.length > 5 && useremail.length > 6) {
+            if(username.length > 5 && userpassword.length > 5 && useremail.length > 5) {
               handleCreateUser({username, userpassword, useremail})
               navigation.push('Login')
+            } else {
+              //Alert user
             }
           }}
         />
