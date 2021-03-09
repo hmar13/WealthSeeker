@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Keyboard } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import ApiService from '../../ApiService';
 
@@ -34,6 +34,7 @@ const WatchListEditListComponent = ({ setUserWatchlistInfo, userId }) => {
         onPress={() => {
           handleDeleteSymbolDB({symbol})
           handleDeleteSymbol({symbol})
+          Keyboard.dismiss()
         }}
       />
 

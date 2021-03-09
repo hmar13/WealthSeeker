@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Keyboard } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import ApiService from '../../ApiService';
 
@@ -32,6 +32,7 @@ const WatchListAddSymbolComponent = ({ setUserWatchlistInfo, watchlist, userId }
         type="solid"
         onPress={() => {
           handleApiCall({symbol})
+          Keyboard.dismiss()
         }}
       />
 
