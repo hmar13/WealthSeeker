@@ -4,13 +4,12 @@ import SvgLogoComponent from './svg-components/SvgLogoComponent';
 
 const HeaderComponent = ({navigation}) => {
 
-  //Put in back navigation
+  //Go back to Home Page
 
   return (
 
       <View style={styles.container}>
-        <TouchableHighlight
-        >
+        <TouchableHighlight>
 
           <View style={styles.container2}>
             <SvgLogoComponent

@@ -48,17 +48,19 @@ const ChartComponent = ({ticker}) => {
 
   return (
     <View>
-      {
-        closePrices.length > 18 ?
-        <ChartItemComponent
-        closePrices={closePrices}
-        closeDates={closeDates}
-        /> : <Text>Loading</Text>
-      }
       <View>
-        <Text>Ticker Info</Text>
+        <Text>{ticker}</Text>
       </View>
 
+      <View>
+        {
+          closePrices.length > 18 ?
+          <ChartItemComponent
+          closePrices={closePrices}
+          closeDates={closeDates}
+          /> : <Text>Loading</Text>
+        }
+      </View>
     </View>
   )
 }
