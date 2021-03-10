@@ -18,9 +18,3 @@ pool.connect(err => {
 })
 
 module.exports = pool;
-
-// DB_HOST=localhost
-// DB_USER=haydn
-// DB_PASSWORD=''
-// DB_DATABASE=soloproject
-// DB_PORT=5432
