@@ -22,36 +22,54 @@ Install a [Mobile Application Emulator](https://developer.android.com/studio?gcl
 Install [Expo](https://docs.expo.io/get-started/installation/)
 
 * Add a .env file in the server folder with the following: 
-  * DB_DATABASE='your database name goes here' 
-  * DB_HOST='your host name goes here'
-  * DB_PORT='your port name goes here'
-  * DB_USER='your database username goes here'
-  * DB_PASSWORD='your database password goes here'
+```
+DB_DATABASE='your database name goes here' 
+DB_HOST='your host name goes here'
+DB_PORT='your port name goes here'
+DB_USER='your database username goes here'
+DB_PASSWORD='your database password goes here'
+```
 
 * Add a appConfig.json file in the client folder with the following:
-  * "BASE_URL": "your localhost url goes here",
-  * "IEX_URL": "your iex url goes here",
-  * "IEX_TOKEN": "your iex token goes here",
-  * "NEWS_URL": your news url goes here",
-  * "NEWS_TOKEN": "your news token goes here"
-
-
+```
+{
+  "BASE_URL": "your localhost url goes here",
+  "IEX_URL": "your iex url goes here",
+  "IEX_TOKEN": "your iex token goes here",
+  "NEWS_URL": your news url goes here",
+  "NEWS_TOKEN": "your news token goes here",
+}
+```
 ## Getting started
 
 1. Make sure you have a PostgreSQL service running in your local environment.
 2. Clone the repo
-* git clone https://github.com/hmar13/WealthSeeker.git
+```
+git clone https://github.com/hmar13/WealthSeeker.git
+```
 3. Install dependencies for both the client and server
 * Client:
-  * cd client
-  * npm install or npm i
+```
+cd client
+```
+```
+npm install or npm i
+```
 * Server:
-  * cd server
-  * npm install or npm i
+```
+cd server
+```
+```
+npm install or npm i
+```
 4. Start the development server
- * nodemon or node index.js
+```
+nodemon or node index.js
+```
 5. Navigate to the client folder and run the React Native application
- * npm start
+```
+npm start
+```
 6. Run on Device or Emulator
 
 ## Tech Stack
