@@ -40,18 +40,32 @@ Install [Expo](https://docs.expo.io/get-started/installation/)
 
 1. Make sure you have a PostgreSQL service running in your local environment.
 2. Clone the repo
-* git clone https://github.com/hmar13/WealthSeeker.git
+```
+git clone https://github.com/hmar13/WealthSeeker.git
+```
 3. Install dependencies for both the client and server
 * Client:
-  * cd client
-  * npm install or npm i
+```
+cd client
+```
+```
+npm install or npm i
+```
 * Server:
-  * cd server
-  * npm install or npm i
+```
+cd server
+```
+```
+npm install or npm i
+```
 4. Start the development server
- * nodemon or node index.js
+```
+nodemon or node index.js
+```
 5. Navigate to the client folder and run the React Native application
- * npm start
+```
+npm start
+```
 6. Run on Device or Emulator
 
 ## Tech Stack
