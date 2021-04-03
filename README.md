@@ -11,9 +11,9 @@ The app allows people to research equity, forex and derivative markets around th
 ## Screenshots
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/69591006/113473315-3c5ae980-9469-11eb-90dd-85f453425bcb.png" width="300">
-  <img src="https://user-images.githubusercontent.com/69591006/113473309-36650880-9469-11eb-85cc-ca95b915cec0.png" width="300">
-  <img src="https://user-images.githubusercontent.com/69591006/113473316-3ebd4380-9469-11eb-8d62-bea0972a0608.png" width="300">
+  <img src="https://user-images.githubusercontent.com/69591006/113473315-3c5ae980-9469-11eb-90dd-85f453425bcb.png" width="200">
+  <img src="https://user-images.githubusercontent.com/69591006/113473309-36650880-9469-11eb-85cc-ca95b915cec0.png" width="200">
+  <img src="https://user-images.githubusercontent.com/69591006/113473316-3ebd4380-9469-11eb-8d62-bea0972a0608.png" width="200">
 </p>
 
 ## Before you start
