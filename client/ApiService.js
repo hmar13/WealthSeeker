@@ -1,4 +1,4 @@
-import { BASE_URL, IEX_URL, NEWS_URL } from './appConfig';
+import { BASE_URL, IEX_URL, NEWS_URL, IEX_TOKEN, NEWS_TOKEN } from './appConfig';
 
 function loginInformation (data) {
     try {
@@ -62,7 +62,7 @@ function deleteTickerWatchlist (data) {
 
 function getTicker (ticker) {
   try {
-    const result = fetchRequestIEX(`${ticker}/quote?token=Tpk_3fe75aad367342a89be38099c730b1a3`);
+    const result = fetchRequestIEX(`${ticker}/quote?token=${IEX_TOKEN}`);
     return result;
   } catch (error) {
     console.error('Get Ticker Error: ', error);
@@ -71,7 +71,7 @@ function getTicker (ticker) {
 
 function getNews (ticker) {
   try {
-    return fetchRequestNews(`${ticker}&from=2021-03-08&to=2021-03-08&sortBy=popularity&apiKey=0c2c5772c8564908a9cd7a23139d73ad`);
+    return fetchRequestNews(`${ticker}&from=2021-03-08&to=2021-03-08&sortBy=popularity&apiKey=${NEWS_TOKEN}`);
   } catch (error) {
     console.error('Get News Ticker Error: ', error);
   }
@@ -79,7 +79,7 @@ function getNews (ticker) {
 
 function getStats (ticker) {
   try {
-    return fetchRequestIEX(`${ticker}/stats?token=Tpk_3fe75aad367342a89be38099c730b1a3`)
+    return fetchRequestIEX(`${ticker}/stats?token=${IEX_TOKEN}`)
   } catch (error) {
     console.error('Get News Ticker Error: ', error)
   }
@@ -87,7 +87,7 @@ function getStats (ticker) {
 
 function getChart (ticker) {
   try {
-    return fetchRequestIEX(`${ticker}/chart?token=Tpk_3fe75aad367342a89be38099c730b1a3`)
+    return fetchRequestIEX(`${ticker}/chart?token=${IEX_TOKEN}`)
   } catch (error) {
     console.error('Get Chart Ticker Error: ', error)
   }
