@@ -5,11 +5,9 @@ import HeaderComponent from '../components/HeaderComponent';
 import ApiService from '../ApiService';
 
 const Login = ({ navigation }) => {
-  //User Information State
   const [username, setUsername] = useState();
   const [userpassword, setUserPassword] = useState();
 
-  //Handler to check Login Info
   const handleUserInformation = useCallback(async (data) => {
     const result = await ApiService.loginInformation(data);
     if (result.length === 0) {

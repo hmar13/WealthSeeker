@@ -4,12 +4,9 @@ import ApiService from '../../ApiService';
 import ChartItemComponent from './ChartItemComponent';
 
 const ChartComponent = ({ticker}) => {
-
-  // const [investmentStats, setInvestmentStats] = useState([]);
   const [closePrices, setClosePrices] = useState([]);
   const [closeDates, setCloseDates] = useState([]);
 
-  //Fetch Historical close prices to build chart
   const handleHisoricalPricesRequest = useCallback(async (ticker) => {
     const results = await ApiService.getChart(ticker);
     if (results.length === 0) {
@@ -22,20 +19,7 @@ const ChartComponent = ({ticker}) => {
     }
   }, [])
 
-  //Fetch Investment Stats
-  // const handleInvestmentStatsRequest = useCallback(async (ticker) => {
-  //   const result = await ApiService.getStats(ticker);
-  //   if (result.length === 0) {
-  //     console.log('Ticker Not Available');
-  //   } else {
-  //     setInvestmentStats(results);
-  //     console.log('results', results);
-  //   }
-  // }, [])
-
-  //Fetch Investment Stats and Historical Prices
   useEffect(() => {
-    // handleInvestmentStatsRequest(ticker);
     if (closePrices.length === 0) {
       handleHisoricalPricesRequest(ticker);
     } else {
@@ -48,7 +32,6 @@ const ChartComponent = ({ticker}) => {
       <View>
         <Text style={styles.ticker}>{ticker}</Text>
       </View>
-
       <View>
         {
           closePrices.length > 18 ?

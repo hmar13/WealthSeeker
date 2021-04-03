@@ -5,13 +5,11 @@ import HeaderComponent from '../components/HeaderComponent';
 import ApiService from '../ApiService';
 
 const SignUp = ({ navigation }) => {
-  //User Information State
   const [username, setUsername] = useState();
   const [userpassword, setUserPassword] = useState();
   const [useremail, setUserEmail] = useState();
 
 
-  //Handler to Post New User Information
   const handleCreateUser = (data) => {
     return ApiService.createUser(data);
   }
@@ -64,7 +62,6 @@ const SignUp = ({ navigation }) => {
               handleCreateUser({username, userpassword, useremail})
               navigation.push('Login')
             } else {
-              //Alert user
             }
           }}
         />

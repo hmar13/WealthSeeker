@@ -6,18 +6,15 @@ import ApiService from '../../ApiService';
 const WatchListAddSymbolComponent = ({ setUserWatchlistInfo, watchlist, userId }) => {
   const [symbol, setSymbol] = useState();
 
-  //Get the ticker information {} on click
   const handleApiCall = useCallback(async (ticker) => {
     const result = await ApiService.getTicker(ticker.symbol);
     if (!result || result.length === 0) {
       console.log('Ticker Not Available');
     } else {
-      //Add to DB Watchlist
       ApiService.addToWatchlistDB({
         ticker: ticker.symbol.toUpperCase(),
         userId: userId
       })
-      //FIX: Stop from adding Duplicate Symbols
       setUserWatchlistInfo((watchlist) => ([...watchlist, result]));
       setSymbol('');
     }
@@ -40,10 +37,6 @@ const WatchListAddSymbolComponent = ({ setUserWatchlistInfo, watchlist, userId }
       placeholder="Ticker"
       onChangeText={value => setSymbol(value)}
       value={symbol}
-      // autoCapitalize="characters"
-      // onEndEditing={() => {
-      //   handleApiCall({symbol})
-      // }}
       />
     </View>
   )

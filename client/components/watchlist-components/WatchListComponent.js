@@ -6,10 +6,8 @@ import WatchListEditListComponent from './WatchListEditListComponent';
 import ApiService from '../../ApiService';
 
 const WatchListComponent = ({ watchlist, userId, navigation }) => {
-  const [userWatchlistInfo, setUserWatchlistInfo] = useState([]); //Holds ticker data
-  // const [backgroundColor, setBackgroundColor] = useState('#F8FDFF') //Hold white or #F8FDFF
+  const [userWatchlistInfo, setUserWatchlistInfo] = useState([]);
 
-  // Callback to Fetch Watchlist Info
   const handleApiWatchlist = useCallback(async (ticker) => {
     const result = await ApiService.getTicker(ticker);
     if (!result || result.length ===0) {
@@ -19,7 +17,6 @@ const WatchListComponent = ({ watchlist, userId, navigation }) => {
     }
   }, [])
 
-  //Save watchlist in state userWatchlist
   useEffect(() => {
     if (watchlist) {
       if(userWatchlistInfo.length === 0) {
@@ -29,15 +26,6 @@ const WatchListComponent = ({ watchlist, userId, navigation }) => {
       console.log('No Watchlist in WatchListComponent');
     }
   }, [])
-
-  //Background colour of items:
-  // const changeColor = useCallback(() => {
-  //   if (backgroundColor === '#F8FDFF') {
-  //     setBackgroundColor('white')
-  //   } else {
-  //     setBackgroundColor('#F8FDFF')
-  //   }
-  // },[])
 
   return (
     <View style={styles.container}>

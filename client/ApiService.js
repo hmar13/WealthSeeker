@@ -1,9 +1,5 @@
-//Instead of localhost, put your IP address:
-const BASE_URL = 'http://192.168.0.80:3001/'
-const IEX_URL = 'https://sandbox.iexapis.com/stable/stock/';
-const NEWS_URL = 'http://newsapi.org/v2/everything?q=';
+import { BASE_URL, IEX_URL, NEWS_URL } from './appConfig';
 
-//Confirm if a user is in the DB to login:
 function loginInformation (data) {
     try {
       return fetchRequest('login', {
@@ -19,7 +15,6 @@ function loginInformation (data) {
     }
 }
 
-// Create a user in the DB:
 function createUser (data) {
   try {
     return fetchRequest('signup', {
@@ -35,7 +30,6 @@ function createUser (data) {
   }
 }
 
-// Add to Watchlist in DB:
 function addToWatchlistDB (data) {
   try {
     return fetchRequest('addtowatchlist', {
@@ -51,7 +45,6 @@ function addToWatchlistDB (data) {
   }
 }
 
-// Delete Ticker in Watchlist DB:
 function deleteTickerWatchlist (data) {
   try {
     return fetchRequest('deleteticker', {
@@ -67,7 +60,6 @@ function deleteTickerWatchlist (data) {
   }
 }
 
-// Get WatchList Ticker Information
 function getTicker (ticker) {
   try {
     const result = fetchRequestIEX(`${ticker}/quote?token=Tpk_3fe75aad367342a89be38099c730b1a3`);
@@ -77,7 +69,6 @@ function getTicker (ticker) {
   }
 }
 
-// Get News Ticker Information
 function getNews (ticker) {
   try {
     return fetchRequestNews(`${ticker}&from=2021-03-08&to=2021-03-08&sortBy=popularity&apiKey=0c2c5772c8564908a9cd7a23139d73ad`);
@@ -86,7 +77,6 @@ function getNews (ticker) {
   }
 }
 
-// Get Stats Ticker Information
 function getStats (ticker) {
   try {
     return fetchRequestIEX(`${ticker}/stats?token=Tpk_3fe75aad367342a89be38099c730b1a3`)
@@ -95,7 +85,6 @@ function getStats (ticker) {
   }
 }
 
-// Get Historical Prices for Chart
 function getChart (ticker) {
   try {
     return fetchRequestIEX(`${ticker}/chart?token=Tpk_3fe75aad367342a89be38099c730b1a3`)
@@ -104,9 +93,6 @@ function getChart (ticker) {
   }
 }
 
-/////////////////Fetch Requests////////////////////
-
-//DB Fetch Request
 function fetchRequest (url, options) {
   return fetch(BASE_URL + url, options)
   .then(res => res.status <= 400 ? res : Promise.reject())
@@ -116,7 +102,6 @@ function fetchRequest (url, options) {
   })
 }
 
-//API IEX Fetch Request
 function fetchRequestIEX (url) {
   return fetch(IEX_URL + url)
   .then(res => res.status <= 400 ? res : Promise.reject())
@@ -126,7 +111,6 @@ function fetchRequestIEX (url) {
   })
 }
 
-//API NEWS Fetch Request
 function fetchRequestNews (url) {
   return fetch(NEWS_URL + url)
   .then(res => res.status <= 400 ? res : Promise.reject())

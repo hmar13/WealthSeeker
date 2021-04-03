@@ -1,5 +1,5 @@
-import * as React from "react"
-import Svg, { Circle, Path } from "react-native-svg"
+import * as React from "react";
+import Svg, { Circle, Path } from "react-native-svg";
 
 function SvgLogoComponent(props) {
   return (
@@ -19,4 +19,4 @@ function SvgLogoComponent(props) {
   )
 }
 
-export default SvgLogoComponent
+export default SvgLogoComponent;

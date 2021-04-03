@@ -1,5 +1,5 @@
-import * as React from "react"
-import Svg, { Circle, Path } from "react-native-svg"
+import * as React from "react";
+import Svg, { Circle, Path } from "react-native-svg";
 
 function SvgBigLogoComponent(props) {
   return (
@@ -19,4 +19,4 @@ function SvgBigLogoComponent(props) {
   )
 }
 
-export default SvgBigLogoComponent
+export default SvgBigLogoComponent;

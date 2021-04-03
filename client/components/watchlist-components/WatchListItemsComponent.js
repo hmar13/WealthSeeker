@@ -4,8 +4,6 @@ import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 const WatchListItemsComponent = ({ ticker, name, price, percentChange, navigation }) => {
   const [greenRed, setGreenRed] = useState('#FF0000')
 
-  // console.log(greenRed)
-
   useEffect(() => {
     if ((percentChange > 0) && (percentChange !== null)) {
       setGreenRed('#34A119');
@@ -77,7 +75,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   percent__container: {
-    // alignContent: 'center',
     width: '25%',
     alignSelf: 'center',
     borderRadius: 20,

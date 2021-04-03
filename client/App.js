@@ -23,11 +23,10 @@ const loadFonts = () => {
 const App = () => {
   const [fontLoaded, setFontLoaded] = useState(false);
 
-  //Custom fonts with Expo
   if (!fontLoaded) {
     return (
       <AppLoading
-        startAsync={loadFonts} //calling the loadFonts helper Function
+        startAsync={loadFonts}
         onFinish={() => setFontLoaded(true)}
         onError={(error) => console.error('Error loading fonts: ', error)}
       />

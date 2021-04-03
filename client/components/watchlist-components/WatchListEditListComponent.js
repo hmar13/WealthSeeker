@@ -13,7 +13,6 @@ const WatchListEditListComponent = ({ setUserWatchlistInfo, userId }) => {
     })
   }, [])
 
-  //Delete Symbol in userWatchlist
   const handleDeleteSymbol = useCallback((ticker) => {
     setUserWatchlistInfo((watchlist) => {
       if (watchlist) {
