@@ -6,7 +6,7 @@
 
 WealthSeeker is a mobile application aimed at helping its users better manage their investment portfolios.
 
-The app allows people to research equity, forex and derivative markets around the world while also saving chosen assets to their watchlist for easy future viewing.
+The app allows people to research equity, forex and derivative markets around the world while also saving chosen assets to their watchlist for future viewing.
 
 ## Screenshots
 
